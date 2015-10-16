@@ -12,10 +12,12 @@ source 'https://rubygems.org'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
-group :development do
-  gem 'berkshelf'
+gem 'foodcritic', '~> 5.0.0'
+gem 'rspec', '~> 3.3.0'
+gem 'serverspec', '~> 2.24.1'
+
+group :integration do
+  gem 'berkshelf', '~> 4.0.1'
+  gem 'test-kitchen', '~> 1.4.2'
   gem 'kitchen-vagrant'
-  gem 'rspec'
-  gem 'serverspec'
-  gem 'test-kitchen'
 end

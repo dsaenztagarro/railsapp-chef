@@ -2,9 +2,6 @@
 
 require 'foodcritic'
 
-# RSpec::Core::RakeTask.new(:unit) do |t|
-#   t.pattern = "test/unit/**/*_spec.rb"
-# end
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)

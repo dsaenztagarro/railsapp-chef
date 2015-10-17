@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dsaenztagarro/railsapp-chef.svg?branch=master)](https://travis-ci.org/dsaenztagarro/railsapp-chef)
+
 railsapp Cookbook
 =================
 TODO: Enter the cookbook description here.

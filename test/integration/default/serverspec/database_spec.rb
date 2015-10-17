@@ -15,4 +15,3 @@ describe 'PostgreSQL' do
   end
 
 end
-

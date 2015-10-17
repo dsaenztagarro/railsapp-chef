@@ -12,6 +12,8 @@ source 'https://rubygems.org'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
+gem 'chefspec', '~> 4.4.0'
+gem 'librarian-chef'
 gem 'foodcritic', '~> 5.0.0'
 gem 'rspec', '~> 3.3.0'
 gem 'serverspec', '~> 2.24.1'

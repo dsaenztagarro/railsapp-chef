@@ -2,13 +2,15 @@
 
 require 'foodcritic'
 
+# RSpec::Core::RakeTask.new(:unit) do |t|
+#   t.pattern = "test/unit/**/*_spec.rb"
+# end
 begin
   require 'rspec/core/rake_task'
-  RSpec::Core::RakeTask.new(:spec) do |t|
-    t.pattern = [ 'test/unit/**{,/*/**}/*_spec.rb' ]
-  end
+  RSpec::Core::RakeTask.new(:spec)
 rescue LoadError
 end
+
 
 begin
   require 'kitchen/rake_tasks'
@@ -17,5 +19,5 @@ rescue LoadError
   puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
 end
 
-task :default => [:foodcritic]
+task :default => [:foodcritic, :unit]
 FoodCritic::Rake::LintTask.new

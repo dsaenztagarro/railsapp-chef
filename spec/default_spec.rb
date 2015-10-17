@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'railsapp::setup_database' do
+describe 'railsapp::default' do
 #   let (:chef_run) do
 #     Kernel.stub(:require).with('rvm')
 #     ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '12.04') do |node, server|

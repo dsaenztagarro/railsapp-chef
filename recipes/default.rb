@@ -7,8 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
-execute "apt-get-update" do
-  command "apt-get update"
+execute 'apt-get-update' do
+  command 'apt-get update'
   ignore_failure true
   action :nothing
 end
@@ -18,4 +18,3 @@ end
 # include_recipe 'rvm::system'
 
 include_recipe 'railsapp::setup_database'
-

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'PostgreSQL' do
-
   it 'is listening on port 5432' do
     expect(port(5432)).to be_listening
   end
@@ -13,5 +12,4 @@ describe 'PostgreSQL' do
   describe package('postgresql-client-9.3') do
     it { should be_installed }
   end
-
 end

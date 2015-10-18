@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe 'railsapp::setup_database' do
-
-  let (:chef_run) do
+  let(:chef_run) do
     Kernel.stub(:require).with('rvm')
     ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['postgresql']['version'] = '9.3'
@@ -32,5 +31,4 @@ describe 'railsapp::setup_database' do
   it 'converges successfully' do
     expect { :chef_run }.to_not raise_error
   end
-
 end

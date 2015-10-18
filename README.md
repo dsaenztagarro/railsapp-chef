@@ -1,8 +1,8 @@
 railsapp Cookbook
 =================
-TODO: Enter the cookbook description here.
 
-e.g.
+My skeleton cookbook for provisioning rails apps
+
 This cookbook makes your favorite breakfast sandwich.
 
 Requirements

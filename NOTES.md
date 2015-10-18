@@ -18,24 +18,27 @@ platforms:
 
 # Development
 
-Create kitchens to watch work in progress
+Setup ChefDK environment with: `rvm use system && chef shell-init bash`
+
+Use kitchens to check work in progress
 
 ```
 kitchen list
-kitchen create default-ubuntu-1404
-kitchen converge default-ubuntu-1404
+kitchen create <kitchen.instance>
+kitchen converge <kitchen.instance>
+kitchen login <kitchen.instance>
 
-# manually verify
-kitchen login default-ubuntu-1204
+# all steps in one
+kitchen test <kitchen.instance>
 ```
 
 # Tests
 
-Run tests with:
+Run unit tests with: `rspec`
 
-```
-kitchen test
-```
+Use **chefspec** unit tests to test complex logic on including recipes.
+
+Run **serverspec** and **bats** integration tests with: `kitchen test <kitchen.instance>`
 
 # Documentation
 

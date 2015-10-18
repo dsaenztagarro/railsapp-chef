@@ -13,6 +13,7 @@ source 'https://rubygems.org'
 # end
 
 group :development do
+  gem 'test-kitchen', '~> 1.4.2'
   gem 'kitchen-vagrant'
 end
 
@@ -32,7 +33,6 @@ group :test do
   gem 'coveralls', '~> 0.8.3'
   gem 'simplecov', '~> 0.10.0'
   gem 'simplecov-console', '~> 0.2.0'
-  gem 'test-kitchen', '~> 1.4.2'
 end
 
 group :integration do

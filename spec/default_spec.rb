@@ -1,4 +1,5 @@
-require 'spec_helper'
+require 'chefspec'
+require 'chefspec/berkshelf'
 
 describe 'railsapp::default' do
 #   let (:chef_run) do
@@ -18,7 +19,8 @@ describe 'railsapp::default' do
 
 
   let (:chef_run) do
-    ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04') do |node, server|
+    Kernel.stub(:require).with('rvm')
+    ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['postgresql']['version'] = '9.3'
     end.converge described_recipe
   end

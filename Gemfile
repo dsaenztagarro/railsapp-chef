@@ -18,6 +18,10 @@ gem 'foodcritic', '~> 5.0.0'
 gem 'rspec', '~> 3.3.0'
 gem 'serverspec', '~> 2.24.1'
 
+gem 'simplecov'
+gem 'simplecov-console'
+gem 'coveralls'
+
 group :integration do
   gem 'berkshelf', '~> 4.0.1'
   gem 'test-kitchen', '~> 1.4.2'

@@ -5,6 +5,9 @@ describe 'railsapp::setup_database' do
     Kernel.stub(:require).with('rvm')
     ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['postgresql']['version'] = '9.3'
+      node.set['railsapp']['db']['name'] = 'db_production'
+      node.set['railsapp']['db']['user']['name'] = 'admin'
+      node.set['railsapp']['db']['user']['password'] = 'admin1234'
     end.converge described_recipe
   end
 
@@ -26,6 +29,12 @@ describe 'railsapp::setup_database' do
 
   it 'installs specific version of db client on node' do
     expect(chef_run).to install_package('postgresql-client-9.3')
+  end
+
+  it 'creates database user' do
+  end
+
+  it 'creates production database schema' do
   end
 
   it 'converges successfully' do

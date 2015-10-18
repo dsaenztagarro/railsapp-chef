@@ -54,7 +54,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   # Use VBoxManage to customize the VM. For example to change memory:
   #   vb.customize ["modifyvm", :id, "--memory", "1024"]
   # end
-  #
+
+  config.vm.provider :virtualbox do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = false
+
+    # Customize the amount of memory on the VM:
+    vb.name = 'test-kitchen-railsapp'
+    vb.memory = '2048'
+  end
+
   # View the documentation for the provider you're using for more
   # information on available options.
 

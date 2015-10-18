@@ -12,9 +12,7 @@ source 'https://rubygems.org'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
-
 group :development do
-  gem 'berkshelf', '~> 4.0.1'
   gem 'kitchen-vagrant'
 end
 
@@ -27,6 +25,7 @@ group :chef do
 end
 
 group :test do
+  gem 'berkshelf', '~> 4.0.1'
   gem 'reek', '~> 3.5.0'
   gem 'cane', '~> 2.6.2'
   gem 'chefspec', '~> 4.4.0'

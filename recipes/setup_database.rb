@@ -21,10 +21,10 @@ include_recipe 'database'
 include_recipe 'database::postgresql'
 
 postgresql_connection_info = {
-  :host     => '127.0.0.1',
-  :port     => node['postgresql']['config']['port'],
-  :username => 'postgres',
-  :password => node['postgresql']['password']['postgres']
+  host: '127.0.0.1',
+  port: node['postgresql']['config']['port'],
+  username: 'postgres',
+  password: node['postgresql']['password']['postgres']
 }
 
 db_name = node[:railsapp][:db][:name]

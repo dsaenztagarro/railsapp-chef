@@ -1,5 +1,4 @@
 namespace :style do
-
   begin
     require 'reek/rake/task'
     Reek::Rake::Task.new do |t|

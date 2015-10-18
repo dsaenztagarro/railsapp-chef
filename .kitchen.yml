@@ -16,7 +16,3 @@ suites:
     run_list:
       - recipe[railsapp::default]
     attributes:
-  - name: db
-    run_list:
-      - recipe[railsapp::setup_database]
-    attributes:

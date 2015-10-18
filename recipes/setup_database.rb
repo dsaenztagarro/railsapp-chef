@@ -27,13 +27,13 @@ postgresql_connection_info = {
   password: node['postgresql']['password']['postgres']
 }
 
-db_name = node[:railsapp][:db][:name]
-user_name = node[:railsapp][:db][:user][:name]
+db_name = node['railsapp']['db']['name']
+user_name = node['railsapp']['db']['user']['name']
 
 # create a mysql user but grant no privileges
 postgresql_database_user user_name do
   connection postgresql_connection_info
-  password   node[:railsapp][:db][:user][:password]
+  password   node['railsapp']['db']['user']['password']
   action     :create
 end
 

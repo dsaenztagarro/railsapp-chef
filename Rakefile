@@ -15,4 +15,11 @@ rescue LoadError
   puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
 end
 
+begin
+  require 'foodcritic'
+  FoodCritic::Rake::LintTask.new
+rescue LoadError
+  puts '>>>>> FoodCritic gem not loaded, omitting tasks'
+end
+
 task default: [:foodcritic, :unit]

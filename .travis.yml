@@ -8,8 +8,8 @@ addons:
     packages:
       - chefdk
 
-# Don't `bundle install`
-install: echo "skip bundle install"
+install:
+- bundle install --without=development
 
 branches:
   only:
@@ -27,3 +27,4 @@ script:
   - /opt/chefdk/embedded/bin/foodcritic --version
   - /opt/chefdk/embedded/bin/foodcritic . --exclude spec
   - /opt/chefdk/embedded/bin/rspec spec
+  - rake quality:all

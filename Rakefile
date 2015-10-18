@@ -5,23 +5,24 @@ begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
 rescue LoadError
-  puts '>>>>> RSpec gem not loaded, omitting tasks'
+  puts '>>>>> RSpec gem not loaded, omitting tasks' unless ENV['CI']
 end
 
 begin
   require 'kitchen/rake_tasks'
   Kitchen::RakeTasks.new
-# rescue LoadError
-rescue Exception => error
-  puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
-  puts ">>>>> #{error.message}"
+rescue StandardError => error
+  unless ENV['CI']
+    puts '>>>>> Kitchen gem not loaded, omitting tasks'
+    puts ">>>>> #{error.message}"
+  end
 end
 
 begin
   require 'foodcritic'
   FoodCritic::Rake::LintTask.new
 rescue LoadError
-  puts '>>>>> FoodCritic gem not loaded, omitting tasks'
+  puts '>>>>> FoodCritic gem not loaded, omitting tasks' unless ENV['CI']
 end
 
 task default: [:foodcritic, :unit]

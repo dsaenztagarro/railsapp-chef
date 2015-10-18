@@ -9,6 +9,8 @@ addons:
       - chef-current-precise
     packages:
       - chefdk
+env:
+- CI=true
 
 install:
   - chef exec bundle install --without=development --without=chef

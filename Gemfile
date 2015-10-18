@@ -14,23 +14,23 @@ source 'https://rubygems.org'
 
 gem 'librarian-chef'
 
+group :development do
+  gem 'berkshelf', '~> 4.0.1'
+  gem 'kitchen-vagrant'
+end
+
 group :test do
-  gem 'reek'
-  gem 'cane'
+  gem 'reek', '~> 3.5.0'
+  gem 'cane', '~> 2.6.2'
   gem 'chefspec', '~> 4.4.0'
-  gem 'coveralls'
+  gem 'coveralls', '~> 0.8.3'
   gem 'foodcritic', '~> 5.0.0'
   gem 'rspec', '~> 3.3.0'
-  gem 'simplecov'
-  gem 'simplecov-console'
+  gem 'simplecov', '~> 0.10.0'
+  gem 'simplecov-console', '~> 0.2.0'
   gem 'test-kitchen', '~> 1.4.2'
 end
 
 group :integration do
   gem 'serverspec', '~> 2.24.1'
-end
-
-group :integration do
-  gem 'berkshelf', '~> 4.0.1'
-  gem 'kitchen-vagrant'
 end

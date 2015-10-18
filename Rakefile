@@ -12,8 +12,9 @@ begin
   require 'kitchen/rake_tasks'
   Kitchen::RakeTasks.new
 # rescue LoadError
-rescue LoadError
+rescue Exception => error
   puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
+  puts ">>>>> #{error.message}"
 end
 
 begin

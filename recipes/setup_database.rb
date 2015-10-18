@@ -7,6 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# Work-around: pg gem fails to compile with chef 12.0 #212
+node.default['build-essential']['compile_time'] = true
+include_recipe 'build-essential::default'
+
 # Install database
 
 node.default['postgresql']['version'] = '9.3'
@@ -16,8 +20,8 @@ include_recipe 'postgresql::server'
 include_recipe 'postgresql::client'
 
 # Configure database
-
-include_recipe 'database'
+#
+# include_recipe 'database'
 include_recipe 'database::postgresql'
 
 postgresql_connection_info = {

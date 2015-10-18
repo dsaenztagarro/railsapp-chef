@@ -7,10 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
-execute 'apt-get-update' do
-  command 'apt-get update'
-  ignore_failure true
-  action :nothing
+execute 'apt-get update' do
+  action :run
 end
 
 # node.default['rvm']['default_ruby'] = 'ruby-2.2.3'

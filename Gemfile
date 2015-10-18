@@ -12,18 +12,25 @@ source 'https://rubygems.org'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
-gem 'chefspec', '~> 4.4.0'
 gem 'librarian-chef'
-gem 'foodcritic', '~> 5.0.0'
-gem 'rspec', '~> 3.3.0'
-gem 'serverspec', '~> 2.24.1'
 
-gem 'simplecov'
-gem 'simplecov-console'
-gem 'coveralls', require: false
+group :test do
+  gem 'reek'
+  gem 'cane'
+  gem 'chefspec', '~> 4.4.0'
+  gem 'coveralls'
+  gem 'foodcritic', '~> 5.0.0'
+  gem 'rspec', '~> 3.3.0'
+  gem 'simplecov'
+  gem 'simplecov-console'
+  gem 'test-kitchen', '~> 1.4.2'
+end
+
+group :integration do
+  gem 'serverspec', '~> 2.24.1'
+end
 
 group :integration do
   gem 'berkshelf', '~> 4.0.1'
-  gem 'test-kitchen', '~> 1.4.2'
   gem 'kitchen-vagrant'
 end

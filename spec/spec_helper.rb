@@ -1,7 +1,7 @@
 require 'chefspec'
 require 'chefspec/berkshelf'
 require 'simplecov'
-# require 'simplecov-console'
+require 'simplecov-console'
 require 'coveralls'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[

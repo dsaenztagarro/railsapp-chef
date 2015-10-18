@@ -1,6 +1,5 @@
 #!/usr/bin/env rake
-
-require 'foodcritic'
+Dir.glob('lib/tasks/*.rake').each { |r| load r}
 
 begin
   require 'rspec/core/rake_task'
@@ -16,5 +15,5 @@ rescue LoadError
   puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
 end
 
+
 task default: [:foodcritic, :unit]
-FoodCritic::Rake::LintTask.new

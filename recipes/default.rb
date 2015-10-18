@@ -11,8 +11,8 @@ execute 'apt-get update' do
   action :run
 end
 
-# node.default['rvm']['default_ruby'] = 'ruby-2.2.3'
-# node.default['rvm']['user_default_ruby'] = 'ruby-2.2.3'
-# include_recipe 'rvm::system'
+node.default['rvm']['default_ruby'] = 'ruby-2.2.3'
+node.default['rvm']['user_default_ruby'] = 'ruby-2.2.3'
+include_recipe 'rvm::system'
 
 include_recipe 'railsapp::setup_database'

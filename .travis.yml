@@ -11,7 +11,7 @@ addons:
       - chefdk
 
 install:
-- bundle install --without=development
+  - chef exec bundle install --without=development --without=chef
 
 branches:
   only:

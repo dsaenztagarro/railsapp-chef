@@ -20,7 +20,7 @@ gem 'serverspec', '~> 2.24.1'
 
 gem 'simplecov'
 gem 'simplecov-console'
-gem 'coveralls'
+gem 'coveralls', require: false
 
 group :integration do
   gem 'berkshelf', '~> 4.0.1'

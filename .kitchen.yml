@@ -16,3 +16,7 @@ suites:
     run_list:
       - recipe[railsapp::default]
     attributes:
+      rvm:
+        user:
+          name: 'vagrant'
+          password: 'vagrant'

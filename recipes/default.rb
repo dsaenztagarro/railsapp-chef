@@ -17,7 +17,7 @@ node.default['rvm']['user']['dir'] = '/home/admin'
 
 node.default['rvm']['rubies']['version'] = '2.2.3'
 
-include_recipe 'rvm'
+include_recipe 'rvm::user_install'
 include_recipe 'rvm::rubies'
 
 include_recipe 'railsapp::setup_database'

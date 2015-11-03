@@ -14,10 +14,10 @@ Requirements
 ------------
 
 #### Platforms
-- Debian/Ubuntu
+- Ubuntu 14.04 LTS
 
 #### Chef
-- Chef 12+
+- Chef 12.2.0
 
 #### Cookbooks
 - apt

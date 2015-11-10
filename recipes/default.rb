@@ -24,6 +24,11 @@ include_recipe 'rvm::rubies'
 
 include_recipe 'phusionpassenger'
 
+phusionpassenger_virtualhost 'railsapp' do
+  server_name node['railsapp']['server_name']
+  application_path node['railsapp']['application_path']
+end
+
 include_recipe 'railsapp::setup_database'
 
 

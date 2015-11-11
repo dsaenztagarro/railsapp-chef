@@ -22,14 +22,9 @@ node.default['rvm']['rubies']['version'] = '2.2.3'
 include_recipe 'rvm::user_install'
 include_recipe 'rvm::rubies'
 
-include_recipe 'phusionpassenger'
-
-phusionpassenger_virtualhost 'railsapp' do
-  server_name node['railsapp']['server_name']
-  application_path node['railsapp']['application_path']
+%w(database webserver).each do |component|
+  include_recipe "railsapp::setup_#{component}"
 end
-
-include_recipe 'railsapp::setup_database'
 
 
 

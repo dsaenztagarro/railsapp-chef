@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: railsapp
-# Recipe:: default
+# Recipe:: setup_database
 #
 # Copyright 2015, David Saenz Tagarro
 #

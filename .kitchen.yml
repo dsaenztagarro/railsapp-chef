@@ -23,5 +23,11 @@ suites:
           name: 'vagrant'
           password: 'vagrant'
       railsapp:
-        server_name: 'mytestapp.local'
-        application_name: '/home/vagrant/deploy'
+        db:
+          user:
+            name: 'test'
+            password: 'test'
+        server:
+          name: 'mytestapp.local'
+        application:
+          name: '/www/deploy/mytestapp.local/releases/current'

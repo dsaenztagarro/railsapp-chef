@@ -25,6 +25,3 @@ include_recipe 'rvm::rubies'
 %w(database webserver).each do |component|
   include_recipe "railsapp::setup_#{component}"
 end
-
-
-

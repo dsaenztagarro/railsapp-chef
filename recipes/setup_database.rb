@@ -10,22 +10,9 @@
 db_name = node['railsapp']['db']['name']
 db_user_name = node['railsapp']['db']['user']['name']
 
-# Work-around: pg gem fails to compile with chef 12.0 #212
-node.default['build-essential']['compile_time'] = true
-include_recipe 'build-essential::default'
-
 # Install database
 
-node.default['postgresql']['version'] = '9.3'
-node.default['postgresql']['password']['postgres'] = 'postgres'
-
-# Added custom config for: /etc/postgresql/9.3/main/pg_hba.conf
-# node.default['postgresql']['pg_hba'].concat([
-#   {type: 'local', db: db_name, user: db_user_name, addr: '127.0.0.1/32', method: 'md5'},
-# ])
-
-include_recipe 'postgresql::server'
-include_recipe 'postgresql::client'
+package %w(postgresql postgresql-contrib)
 
 # Configure database
 #

@@ -23,7 +23,7 @@ postgresql_connection_info = {
   host: '127.0.0.1',
   port: node['postgresql']['config']['port'],
   username: 'postgres',
-  password: node['postgresql']['password']['postgres']
+  password: 'foo'
 }
 
 # create a mysql user but grant no privileges

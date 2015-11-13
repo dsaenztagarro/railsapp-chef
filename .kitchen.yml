@@ -24,6 +24,9 @@ suites:
           password: 'vagrant'
       railsapp:
         db:
+          connection:
+            name: 'postgres'
+            password: 'postgres'
           user:
             name: 'test'
             password: 'test'

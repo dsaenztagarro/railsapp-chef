@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'railsapp::setup_database' do
   let(:chef_run) do
-		allow(Kernel).to receive(:require).and_return('rvm')
+    allow(Kernel).to receive(:require).and_return('rvm')
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['database_sl']['postgresql']['version'] = '9.3'
       node.set['railsapp']['db']['name'] = 'db_production'

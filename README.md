@@ -112,6 +112,13 @@ Just include `railsapp` in your node's `run_list`:
 }
 ```
 
+Sharing
+-------
+
+```
+knife cookbook site share "railsapp" "Applications"
+```
+
 Contributing
 ------------
 1. Fork the repository on Github

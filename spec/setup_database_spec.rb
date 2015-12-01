@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'railsapp::setup_database' do
   let(:chef_run) do
     Kernel.stub(:require).with('rvm')
-    ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['postgresql']['version'] = '9.3'
+    ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
+      node.set['database_sl']['postgresql']['version'] = '9.3'
       node.set['railsapp']['db']['name'] = 'db_production'
       node.set['railsapp']['db']['user']['name'] = 'admin'
       node.set['railsapp']['db']['user']['password'] = 'admin1234'
@@ -12,19 +12,15 @@ describe 'railsapp::setup_database' do
   end
 
   before(:each) do
-    stub_command('ls /var/lib/postgresql/9.3/main/recovery.conf').and_return(true)
+    stub_command('grep -q http://apt.postgresql.org/pub/repos/apt/ /etc/apt/sources.list.d/pgdg.list').and_return(false)
   end
 
-  it 'installs db server' do
-    expect(chef_run).to include_recipe 'postgresql::server'
+  it 'installs postgresql db server' do
+    expect(chef_run).to include_recipe 'database_sl::postgresql'
   end
 
   it 'installs specific version of db server on node' do
-    expect(chef_run).to install_package('postgresql-9.3')
-  end
-
-  it 'installs db client' do
-    expect(chef_run).to include_recipe 'postgresql::client'
+    expect(chef_run).to install_package('postgresql-9.3, postgresql-contrib-9.3, postgresql-server-dev-9.3')
   end
 
   it 'installs specific version of db client on node' do
@@ -32,9 +28,15 @@ describe 'railsapp::setup_database' do
   end
 
   it 'creates database user' do
+    expect(chef_run).to create_postgresql_user('admin_user(1)')
   end
 
   it 'creates production database schema' do
+    expect(chef_run).to create_postgresql_database('db_production')
+  end
+
+  it 'grant privileges to database user' do
+    expect(chef_run).to grant_postgresql_user('admin_user(2)')
   end
 
   it 'converges successfully' do

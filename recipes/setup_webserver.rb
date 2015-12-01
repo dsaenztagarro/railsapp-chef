@@ -13,4 +13,3 @@ phusionpassenger_virtualhost 'railsapp' do
   server_name node['railsapp']['server']['name']
   application_path node['railsapp']['application']['path']
 end
-

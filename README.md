@@ -51,6 +51,50 @@ Attributes
   </tr>
 </table>
 
+#### railsapp::setup_database
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td><tt>['railsapp']['db']['name']</tt></td>
+    <td>String</td>
+    <td>Database name</td>
+    <td><tt>railsapp_production</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['railsapp']['db']['user']['name']</tt></td>
+    <td>String</td>
+    <td>Database user name</td>
+    <td><tt>production</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['railsapp']['db']['user']['password']</tt></td>
+    <td>String</td>
+    <td>Database user password</td>
+    <td><tt>production</tt></td>
+  </tr>
+</table>
+
+#### railsapp::setup_database
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td><tt>['railsapp']['server']['name']</tt></td>
+    <td>String</td>
+    <td>Server name</td>
+    <td><tt>myrailsapp.com</tt></td>
+  </tr>
+</table>
+
 Usage
 -----
 #### railsapp::default

@@ -23,15 +23,12 @@ Requirements
 #### Cookbooks
 - apt
 - build-essential
-- database
-- postgresql
+- database_sl
 - rvm
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
-e.g.
 #### railsapp::default
 <table>
   <tr>
@@ -41,10 +38,16 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['railsapp']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['railsapp']['server_name']</tt></td>
+    <td>String</td>
+    <td>Url of the server hosting the rails app</td>
+    <td><tt>application.chef</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['railsapp']['application_path']</tt></td>
+    <td>String</td>
+    <td>The file path the application is deployed</td>
+    <td><tt>application.chef</tt></td>
   </tr>
 </table>
 

@@ -17,10 +17,12 @@ node.default['rvm']['user']['name'] = 'admin'
 node.default['rvm']['user']['password'] = 'admin'
 node.default['rvm']['user']['dir'] = '/home/admin'
 
-node.default['rvm']['rubies']['version'] = '2.2.3'
-
 include_recipe 'rvm::user_install'
-include_recipe 'rvm::rubies'
+
+rvm_rubies 'ruby-2.2.3' do
+	version '2.2.3'
+	default true
+end
 
 %w(database webserver).each do |component|
   include_recipe "railsapp::setup_#{component}"

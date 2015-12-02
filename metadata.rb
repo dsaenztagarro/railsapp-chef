@@ -8,7 +8,7 @@ version          '0.1.0'
 
 depends 'build-essential'
 depends 'database_sl'
-depends 'rvm'
+depends 'rvm_sl'
 depends 'phusionpassenger'
 
 %w(debian ubuntu).each { |os| supports os }

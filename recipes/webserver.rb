@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: railsapp
-# Recipe:: setup_webserver
+# Recipe:: webserver
 #
 # Copyright 2015, David Saenz Tagarro
 #
@@ -9,7 +9,7 @@
 
 include_recipe 'phusionpassenger'
 
-phusionpassenger_virtualhost 'railsapp' do
+passenger_virtualhost 'railsapp' do
   server_name node['railsapp']['server']['name']
   application_path node['railsapp']['application']['path']
 end

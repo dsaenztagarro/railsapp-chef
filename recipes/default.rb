@@ -24,6 +24,6 @@ rvm_rubies 'ruby-2.2.3' do
 	default true
 end
 
-%w(database webserver).each do |component|
-  include_recipe "railsapp::setup_#{component}"
+%w(database webserver).each do |recipe|
+  include_recipe "railsapp::#{recipe}"
 end

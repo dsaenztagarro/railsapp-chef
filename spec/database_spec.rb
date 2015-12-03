@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'railsapp::setup_database' do
+describe 'railsapp::database' do
   let(:chef_run) do
     allow(Kernel).to receive(:require).and_return('rvm')
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
@@ -28,7 +28,7 @@ describe 'railsapp::setup_database' do
   end
 
   it 'creates database user' do
-    expect(chef_run).to create_postgresql_user('admin_user(1)')
+    expect(chef_run).to create_postgresql_user('creating_user')
   end
 
   it 'creates production database schema' do
@@ -36,7 +36,7 @@ describe 'railsapp::setup_database' do
   end
 
   it 'grant privileges to database user' do
-    expect(chef_run).to grant_postgresql_user('admin_user(2)')
+    expect(chef_run).to grant_postgresql_user('granting_user')
   end
 
   it 'converges successfully' do

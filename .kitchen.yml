@@ -10,29 +10,29 @@ provisioner:
 
 platforms:
   - name: ubuntu-14.04
-  driver:
-    box: opscode-ubuntu-15.04
-    customize:
-      memory: 2048
+    driver:
+      box: opscode-ubuntu-15.04
+      customize:
+        memory: 2048
 
 suites:
   - name: default
-  run_list:
-    - recipe[railsapp::default]
-  attributes:
-    rvm:
-      user:
-        name: 'vagrant'
-        password: 'vagrant'
-      railsapp:
-        db:
-          connection:
-            name: 'postgres'
-            password: 'postgres'
-          user:
-            name: 'test'
-            password: 'test'
-        server:
-          name: 'mytestapp.local'
-        application:
-          name: '/www/deploy/mytestapp.local/releases/current'
+    run_list:
+      - recipe[railsapp::default]
+    attributes:
+      rvm:
+        user:
+          name: 'vagrant'
+          password: 'vagrant'
+        railsapp:
+          db:
+            connection:
+              name: 'postgres'
+              password: 'postgres'
+            user:
+              name: 'test'
+              password: 'test'
+          server:
+            name: 'mytestapp.local'
+          application:
+            name: '/www/deploy/mytestapp.local/releases/current'

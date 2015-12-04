@@ -2,8 +2,7 @@ source 'https://supermarket.chef.io'
 
 metadata
 
-cookbook 'build-essential', '~> 2.2.4'
-cookbook 'database_sl', '0.1.1'
+cookbook 'database_sl', '0.1.3'
 cookbook 'rvm_sl', '0.1.0'
 cookbook 'phusionpassenger', path: '/Users/dst/Projects/chef/chef-repo/cookbooks/phusionpassenger'
 

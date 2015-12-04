@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'railsapp::default' do
   let(:chef_run) do
-    ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04') do |node|
+    ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '14.04') do |node|
       node.set['postgresql']['version'] = '9.3'
     end.converge described_recipe
   end

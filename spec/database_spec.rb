@@ -1,10 +1,13 @@
 require 'spec_helper'
 
 describe 'railsapp::database' do
+  let(:postgresql_package_version) { '9.4+170.pgdg14.04+1' }
+  let(:postgresql_version) { '9.4' }
   let(:chef_run) do
     allow(Kernel).to receive(:require).and_return('rvm')
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['database_sl']['postgresql']['version'] = '9.3'
+      node.set['database']['postgresql']['package_version'] = postgresql_package_version
+      node.set['database']['postgresql']['version'] = postgresql_version
       node.set['railsapp']['db']['name'] = 'db_production'
       node.set['railsapp']['db']['user']['name'] = 'admin'
       node.set['railsapp']['db']['user']['password'] = 'admin1234'
@@ -12,7 +15,7 @@ describe 'railsapp::database' do
   end
 
   before(:each) do
-    stub_command('grep -q http://apt.postgresql.org/pub/repos/apt/ /etc/apt/sources.list.d/pgdg.list').and_return(false)
+    stub_command("sudo apt-key list | grep \"PostgreSQL Debian Repository\"").and_return(false)
   end
 
   it 'installs postgresql db server' do
@@ -20,11 +23,12 @@ describe 'railsapp::database' do
   end
 
   it 'installs specific version of db server on node' do
-    expect(chef_run).to install_package('postgresql-9.3, postgresql-contrib-9.3, postgresql-server-dev-9.3')
+    packages = ['postgresql', 'postgresql-contrib']
+    expect(chef_run).to install_package(packages).with(version: postgresql_package_version)
   end
 
   it 'installs specific version of db client on node' do
-    expect(chef_run).to install_package('postgresql-client-9.3')
+    expect(chef_run).to install_package('postgresql-client').with(version: postgresql_package_version)
   end
 
   it 'creates database user' do

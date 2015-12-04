@@ -23,3 +23,7 @@ rvm_rubies 'ruby-2.2.3' do
 	version '2.2.3'
 	default true
 end
+
+rvm_gems 'ruby-2.2.3' do
+  gem_name 'bundler'
+end

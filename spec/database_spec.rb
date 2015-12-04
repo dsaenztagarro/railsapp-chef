@@ -4,7 +4,6 @@ describe 'railsapp::database' do
   let(:postgresql_package_version) { '9.4+170.pgdg14.04+1' }
   let(:postgresql_version) { '9.4' }
   let(:chef_run) do
-    allow(Kernel).to receive(:require).and_return('rvm')
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['database']['postgresql']['package_version'] = postgresql_package_version
       node.set['database']['postgresql']['version'] = postgresql_version

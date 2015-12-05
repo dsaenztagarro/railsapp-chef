@@ -13,17 +13,12 @@ end
 
 package 'apache2'
 
-node.default['rvm']['user']['name'] = 'admin'
-node.default['rvm']['user']['password'] = 'admin'
-node.default['rvm']['user']['dir'] = '/home/admin'
-
-include_recipe 'rvm::user_install'
+include_recipe 'rvm_sl::user_install'
 
 rvm_rubies 'ruby-2.2.3' do
-	version '2.2.3'
 	default true
 end
 
-rvm_gems 'ruby-2.2.3' do
-  gem_name 'bundler'
+rvm_gem 'bundler' do
+  ruby_version 'ruby-2.2.3'
 end

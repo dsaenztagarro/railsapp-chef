@@ -24,7 +24,7 @@ postgresql_database db_name do
 end
 
 postgresql_user 'granting_user' do
-  name db_name
+  name db_user_name
   database_name db_name
   privileges    ['ALL PRIVILEGES']
   action        :grant

@@ -21,86 +21,42 @@ Requirements
 - Chef 12.2.0
 
 #### Cookbooks
-- apt
-- build-essential
 - database_sl
-- rvm
+- rvm_sl
+- phussionpassenger
 
 Attributes
 ----------
 
 #### railsapp::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['railsapp']['server_name']</tt></td>
-    <td>String</td>
-    <td>Url of the server hosting the rails app</td>
-    <td><tt>application.chef</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['railsapp']['application_path']</tt></td>
-    <td>String</td>
-    <td>The file path the application is deployed</td>
-    <td><tt>application.chef</tt></td>
-  </tr>
-</table>
 
-#### railsapp::setup_database
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['railsapp']['db']['name']</tt></td>
-    <td>String</td>
-    <td>Database name</td>
-    <td><tt>railsapp_production</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['railsapp']['db']['user']['name']</tt></td>
-    <td>String</td>
-    <td>Database user name</td>
-    <td><tt>production</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['railsapp']['db']['user']['password']</tt></td>
-    <td>String</td>
-    <td>Database user password</td>
-    <td><tt>production</tt></td>
-  </tr>
-</table>
+See `attributes/default.rb` for default values.
 
-#### railsapp::setup_database
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['railsapp']['server']['name']</tt></td>
-    <td>String</td>
-    <td>Server name</td>
-    <td><tt>myrailsapp.com</tt></td>
-  </tr>
-</table>
+* `node['railsapp']['application']` - The application name
+* `node['railsapp']['rails_env']` - The rails environment
+* `node['railsapp']['username']` - The deployer user name
+
+#### railsapp::database
+
+See `attributes/database.rb` for default values.
+
+* `node['railsapp']['db']['name']` - The database name
+* `node['railsapp']['db']['hostname']` - The hostname of the database
+* `node['railsapp']['db']['username']` - The username of the database
+* `node['railsapp']['db']['password']` - The password of the database
+
+#### railsapp::webserver
+
+See `attributes/webserver.rb` for default values.
+
+* `node['railsapp']['webserver']['name']` - The server name
+* `node['railsapp']['webserver']['document_root']` - The document root of the virtualhost
 
 Usage
 -----
-#### railsapp::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
+#### railsapp::default
+
 Just include `railsapp` in your node's `run_list`:
 
 ```json

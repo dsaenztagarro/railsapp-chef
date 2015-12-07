@@ -11,5 +11,12 @@ include_recipe 'phusionpassenger'
 
 passenger_virtualhost 'railsapp' do
   server_name node['railsapp']['server']['name']
-  application_path node['railsapp']['application']['path']
+  user_name node['railsapp']['user']['name']
+  document_root node['railsapp']['webserver']['document_root']
+end
+
+passenger_virtualhost 'railsapp' do
+  server_name node['railsapp']['server']['name']
+  user_name node['railsapp']['user']['name']
+  action :enable
 end

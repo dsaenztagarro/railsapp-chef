@@ -7,24 +7,24 @@
 # All rights reserved - Do Not Redistribute
 #
 
-db_name = node['railsapp']['db']['name']
-db_user_name = node['railsapp']['db']['user']['name']
-
 include_recipe 'database_sl::postgresql'
 
+db_name = node['railsapp']['db']['name']
+db_username = node['railsapp']['db']['username']
+
 postgresql_user 'creating_user' do
-  name db_user_name
-  password   node['railsapp']['db']['user']['password']
+  name db_username
+  password   node['railsapp']['db']['password']
   action     :create
 end
 
 postgresql_database db_name do
-  owner db_user_name
+  owner db_username
   action :create
 end
 
 postgresql_user 'granting_user' do
-  name db_user_name
+  name db_username
   database_name db_name
   privileges    ['ALL PRIVILEGES']
   action        :grant

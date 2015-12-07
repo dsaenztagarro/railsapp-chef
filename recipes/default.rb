@@ -7,8 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w(system_requirements
+test = %w(system_requirements
 	 database
-	 webserver).each do |recipe|
+	 webserver
+   deploy)
+%w(database deploy).each do |recipe|
   include_recipe "railsapp::#{recipe}"
 end

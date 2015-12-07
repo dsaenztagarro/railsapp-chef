@@ -44,3 +44,22 @@ template "#{deploy_dir}/shared/config/secrets.yml" do
     secret_key_base: node['railsapp']['webserver']['secret_key_base']
   })
 end
+
+# TODO: Extract to nodejs_sl cookbook
+# include_recipe 'nodejs_sl'
+
+tmp_node_installer_path = "#{Chef::Config[:file_cache_path]}/node_installer"
+
+remote_file 'adding_node_installer' do
+  path tmp_node_installer_path
+  source 'https://deb.nodesource.com/setup_5.x'
+  not_if { ::File.exist? tmp_node_installer_path }
+end
+
+execute 'adding_apt_repository' do
+  user 'root'
+  command "sudo -E bash #{tmp_node_installer_path}"
+  not_if 'which node'
+end
+
+package 'nodejs'

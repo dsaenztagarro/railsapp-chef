@@ -11,7 +11,7 @@ provisioner:
 platforms:
   - name: ubuntu-14.04
     driver:
-      box: opscode-ubuntu-15.04
+      box: opscode-ubuntu-14.04
       customize:
         memory: 2048
 
@@ -24,15 +24,17 @@ suites:
         user:
           name: 'vagrant'
           password: 'vagrant'
-        railsapp:
-          db:
-            connection:
-              name: 'postgres'
-              password: 'postgres'
-            user:
-              name: 'test'
-              password: 'test'
-          server:
-            name: 'mytestapp.local'
-          application:
-            name: '/www/deploy/mytestapp.local/releases/current'
+          home: '/home/vagrant'
+      railsapp:
+        application: 'myfamilyweb'
+        rails_env: 'production'
+        deployer:
+          username: 'vagrant'
+        db:
+          name: 'dbname'
+          username: 'dbuser'
+          password: 'dbuser123'
+        webserver:
+          name: 'myfamilyweb.local'
+          document_root: '/www/deploy/myfamilyweb/releases/current/public'
+          secret_key_base: '8d7d7213485b5b960f753222a5e3f2974aaa19c3c99c84b575c0d7db409dc093bbcc8c5f08ec77c1a057631b9df50d6679bd3873da7b28030ce23075d8ebc127'

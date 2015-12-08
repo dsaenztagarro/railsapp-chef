@@ -16,7 +16,7 @@ package 'apache2'
 include_recipe 'rvm_sl::user_install'
 
 rvm_rubies 'ruby-2.2.3' do
-	default true
+  default true
 end
 
 rvm_gem 'bundler' do

@@ -26,23 +26,23 @@ template "#{deploy_dir}/shared/config/database.yml" do
   group 'www-data'
   owner deployer
   source 'database.yml.erb'
-  variables({
+  variables(
     rails_env: node['railsapp']['rails_env'],
     database: node['railsapp']['db']['name'],
     hostname: node['railsapp']['db']['hostname'],
     username: node['railsapp']['db']['username'],
     password: node['railsapp']['db']['password']
-  })
+  )
 end
 
 template "#{deploy_dir}/shared/config/secrets.yml" do
   group 'www-data'
   owner deployer
   source 'secrets.yml.erb'
-  variables({
+  variables(
     rails_env: node['railsapp']['rails_env'],
     secret_key_base: node['railsapp']['webserver']['secret_key_base']
-  })
+  )
 end
 
 # TODO: Extract to nodejs_sl cookbook

@@ -13,6 +13,8 @@ end
 
 package 'apache2'
 
+package 'git'
+
 ruby_version = node['railsapp']['ruby_version']
 
 include_recipe 'rvm_sl::user_install'

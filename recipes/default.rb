@@ -7,6 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w(deploy).each do |recipe|
+%w(system_requirements deploy).each do |recipe|
   include_recipe "railsapp::#{recipe}"
 end

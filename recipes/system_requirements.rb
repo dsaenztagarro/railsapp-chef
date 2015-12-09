@@ -13,12 +13,14 @@ end
 
 package 'apache2'
 
+ruby_version = node['railsapp']['ruby_version']
+
 include_recipe 'rvm_sl::user_install'
 
-rvm_rubies 'ruby-2.2.3' do
+rvm_rubies ruby_version do
   default true
 end
 
 rvm_gem 'bundler' do
-  ruby_version 'ruby-2.2.3'
+  ruby_version ruby_version
 end

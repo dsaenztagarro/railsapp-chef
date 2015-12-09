@@ -34,7 +34,14 @@ See `attributes/default.rb` for default values.
 
 * `node['railsapp']['application']` - The application name
 * `node['railsapp']['rails_env']` - The rails environment
-* `node['railsapp']['username']` - The deployer user name
+* `node['railsapp']['deployer']['username']` - The deployer user name
+* `node['railsapp']['deployer']['password']` - The deployer user password
+
+Generate new password with:
+
+```
+openssl passwd -1 "theplaintextpassword"
+```
 
 #### railsapp::database
 

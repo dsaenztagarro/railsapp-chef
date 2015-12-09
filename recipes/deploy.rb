@@ -16,10 +16,12 @@ directory deploy_dir do
   recursive true
 end
 
-directory "#{deploy_dir}/shared/config/" do
-  group 'www-data'
-  owner deployer
-  recursive true
+%W(#{deploy_dir}/shared #{deploy_dir}/shared/config).each do |path|
+  directory path do
+    group 'www-data'
+    owner deployer
+    recursive true
+  end
 end
 
 template "#{deploy_dir}/shared/config/database.yml" do

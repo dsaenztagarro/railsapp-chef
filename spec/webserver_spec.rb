@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe 'railsapp::webserver' do
-  let(:server_name) { 'mywebapp.test' }
+  let(:server) { 'mywebapp.test' }
   let(:document_root) { '/var/www/mywebapp/public' }
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['railsapp']['webserver']['name'] = server_name
+      node.set['railsapp']['webserver']['name'] = server
       node.set['railsapp']['webserver']['document_root'] = document_root
     end.converge described_recipe
   end
@@ -17,13 +17,13 @@ describe 'railsapp::webserver' do
   it 'creates a new passenger site' do
     expect(chef_run).to(
       create_passenger_site('creating_site').with(
-        server_name: server_name,
+        server: server,
         document_root: document_root))
   end
 
   it 'enables a new passenger site' do
     expect(chef_run).to(
-      enable_passenger_site('enabling_site').with(server_name: server_name))
+      enable_passenger_site('enabling_site').with(server: server))
   end
 
   it 'converges successfully' do

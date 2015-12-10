@@ -9,17 +9,18 @@
 
 include_recipe 'phusionpassenger'
 
-sname = node['railsapp']['webserver']['name']
-uname = node['railsapp']['username']
+servername = node['railsapp']['webserver']['name']
+username = node['railsapp']['username']
 
 passenger_site 'creating_site' do
-  server_name sname
-  user_name uname
   document_root node['railsapp']['webserver']['document_root']
+  environment 'USER' => username, 'HOME' => File.join('/home', username)
+  server servername
+  user username
 end
 
 passenger_site 'enabling_site' do
-  server_name sname
-  user_name uname
+  server servername
+  user username
   action :enable
 end

@@ -5,11 +5,11 @@ describe 'PostgreSQL' do
     expect(port(5432)).to be_listening
   end
 
-  describe package('postgresql-9.3') do
+  describe package('postgresql-9.4') do
     it { should be_installed }
   end
 
-  describe package('postgresql-client-9.3') do
+  describe package('postgresql-client-9.4') do
     it { should be_installed }
   end
 end

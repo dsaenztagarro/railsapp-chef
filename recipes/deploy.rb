@@ -58,7 +58,7 @@ remote_file 'adding_node_installer' do
   not_if { ::File.exist? tmp_node_installer_path }
 end
 
-execute 'adding_apt_repository' do
+execute 'adding_node_apt_repository' do
   user 'root'
   command "sudo -E bash #{tmp_node_installer_path}"
   not_if 'which node'

@@ -7,15 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w(webserver).each do |recipe|
+%w(users
+   system_requirements
+   database
+   webserver
+   deploy).each do |recipe|
   include_recipe "railsapp::#{recipe}"
 end
-
-
-# %w(users
-#    system_requirements
-#    database
-#    webserver
-#    deploy).each do |recipe|
-#   include_recipe "railsapp::#{recipe}"
-# end

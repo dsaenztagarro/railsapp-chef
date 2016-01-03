@@ -23,7 +23,9 @@ describe 'railsapp::webserver' do
 
   it 'enables a new passenger site' do
     expect(chef_run).to(
-      enable_passenger_site('enabling_site').with(server: server))
+      enable_passenger_site('enabling_site').with(
+        server: server,
+        document_root: document_root))
   end
 
   it 'converges successfully' do

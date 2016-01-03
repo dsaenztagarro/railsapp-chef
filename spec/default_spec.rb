@@ -10,10 +10,14 @@ describe 'railsapp::default' do
   end
 
   before(:each) do
-    stub_command('which rvm').and_return(false)
-    stub_command("grep -q rvm $HOME/.bashrc").and_return(false)
-    stub_command('ls /var/lib/postgresql/9.3/main/recovery.conf').and_return(true)
-    stub_command('which node').and_return(false)
+    commands = [
+      'which rvm',
+      "grep -q rvm $HOME/.bashrc",
+      'ls /var/lib/postgresql/9.3/main/recovery.conf',
+      'which node',
+      "sudo apt-key list | grep \"PostgreSQL Debian Repository\""
+    ]
+    commands.each { |command| stub_command(command).and_return(false) }
   end
 
   it 'converges successfully' do

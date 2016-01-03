@@ -12,7 +12,7 @@ describe 'railsapp::default' do
   before(:each) do
     commands = [
       'which rvm',
-      "grep -q rvm $HOME/.bashrc",
+      'grep -q rvm $HOME/.bashrc',
       'ls /var/lib/postgresql/9.3/main/recovery.conf',
       'which node',
       "sudo apt-key list | grep \"PostgreSQL Debian Repository\""

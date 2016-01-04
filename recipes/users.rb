@@ -11,16 +11,16 @@ deployer_username = node['railsapp']['deployer']['username']
 deployer_password = node['railsapp']['deployer']['password']
 
 user deployer_username do
-  uid 1000
   gid 'users'
-  supports manage_home: true
   home "/home/#{deployer_username}"
-  shell '/bin/bash'
   password deployer_password
+  shell '/bin/bash'
+  supports manage_home: true
+  uid 1000
 end
 
 group 'www-data' do
-  action :modify
-  members deployer_username
   append true
+  members deployer_username
+  action :modify
 end

@@ -10,7 +10,6 @@
 %w(users
    system_requirements
    database
-   webserver
-   deploy).each do |recipe|
+   webserver).each do |recipe|
   include_recipe "railsapp::#{recipe}"
 end

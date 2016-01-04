@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'railsapp::deploy' do
+describe 'railsapp::rails_deploy' do
   let(:apache_group) { 'www-data' }
   let(:application) { 'webapp' }
   let(:deployer) { 'deployer' }

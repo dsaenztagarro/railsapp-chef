@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: railsapp
-# Recipe:: deploy
+# Recipe:: rails_deploy
 #
 # Copyright 2015, David Saenz Tagarro
 #

@@ -21,18 +21,17 @@ describe 'railsapp::deploy' do
   end
 
   context 'unconverged node' do
-
     it 'creates a deploy directory with valid attributes' do
       expect(chef_run).to create_directory(deploy_dir).with(
         user: deployer,
-        group: apache_group,
+        group: apache_group
       )
     end
 
     it 'creates a shared deploy directory with valid attributes' do
       expect(chef_run).to create_directory("#{deploy_dir}/shared").with(
         user: deployer,
-        group: apache_group,
+        group: apache_group
       )
     end
 
@@ -40,7 +39,7 @@ describe 'railsapp::deploy' do
       dest_dir = "#{deploy_dir}/shared/config"
       expect(chef_run).to create_directory(dest_dir).with(
         user: deployer,
-        group: apache_group,
+        group: apache_group
       )
     end
 

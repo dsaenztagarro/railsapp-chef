@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: railsapp
+# Cookbook Name:: rubystack
 # Recipe:: default
 #
 # Copyright 2015, David Saenz Tagarro
@@ -11,5 +11,5 @@
    system_requirements
    database
    webserver).each do |recipe|
-  include_recipe "railsapp::#{recipe}"
+  include_recipe "rubystack::#{recipe}"
 end

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: railsapp
+# Cookbook Name:: rubystack
 # Recipe:: webserver
 #
 # Copyright 2015, David Saenz Tagarro
@@ -9,11 +9,11 @@
 
 include_recipe 'phusionpassenger'
 
-webserver = node['railsapp']['webserver']
-username = node['railsapp']['username']
+webserver = node['rubystack']['webserver']
+username = node['rubystack']['username']
 
 passenger_site 'creating_site' do
-  document_root node['railsapp']['webserver']['document_root']
+  document_root node['rubystack']['webserver']['document_root']
   environment 'USER' => username, 'HOME' => File.join('/home', username)
   server_name webserver['server_name']
   server_alias webserver['server_alias']

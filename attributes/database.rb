@@ -1,4 +1,4 @@
-default['railsapp']['db']['name'] = 'application'
-default['railsapp']['db']['hostname'] = '127.0.0.1'
-default['railsapp']['db']['username'] = 'dbuser'
-default['railsapp']['db']['password'] = ''
+default['rubystack']['db']['name'] = 'application'
+default['rubystack']['db']['hostname'] = '127.0.0.1'
+default['rubystack']['db']['username'] = 'dbuser'
+default['rubystack']['db']['password'] = ''

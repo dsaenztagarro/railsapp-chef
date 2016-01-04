@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'railsapp::users' do
+describe 'rubystack::users' do
   let(:application) { 'webapp' }
   let(:deployer) { 'deployer' }
   let(:deployer_password) { 'deployer123' }
@@ -8,9 +8,9 @@ describe 'railsapp::users' do
 
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['railsapp']['application'] = application
-      node.set['railsapp']['deployer']['username'] = deployer
-      node.set['railsapp']['deployer']['password'] = deployer_password
+      node.set['rubystack']['application'] = application
+      node.set['rubystack']['deployer']['username'] = deployer
+      node.set['rubystack']['deployer']['password'] = deployer_password
     end.converge described_recipe
   end
 

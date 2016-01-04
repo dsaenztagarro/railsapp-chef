@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: railsapp
+# Cookbook Name:: rubystack
 # Recipe:: database
 #
 # Copyright 2015, David Saenz Tagarro
@@ -9,12 +9,12 @@
 
 include_recipe 'database_sl::postgresql'
 
-db_name = node['railsapp']['db']['name']
-db_username = node['railsapp']['db']['username']
+db_name = node['rubystack']['db']['name']
+db_username = node['rubystack']['db']['username']
 
 postgresql_user 'creating_user' do
   name db_username
-  password   node['railsapp']['db']['password']
+  password   node['rubystack']['db']['password']
   action     :create
 end
 

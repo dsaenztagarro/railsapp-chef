@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: railsapp
+# Cookbook Name:: rubystack
 # Recipe:: rails_deploy
 #
 # Copyright 2015, David Saenz Tagarro
@@ -8,8 +8,8 @@
 #
 
 apache_group = 'www-data'
-deployer = node['railsapp']['deployer']['username']
-deploy_dir = "/var/www/#{node['railsapp']['application']}"
+deployer = node['rubystack']['deployer']['username']
+deploy_dir = "/var/www/#{node['rubystack']['application']}"
 
 directory deploy_dir do
   group apache_group
@@ -32,11 +32,11 @@ template 'create_database_config' do
   path database_path
   source 'database.yml.erb'
   variables(
-    rails_env: node['railsapp']['rails_env'],
-    database: node['railsapp']['db']['name'],
-    hostname: node['railsapp']['db']['hostname'],
-    username: node['railsapp']['db']['username'],
-    password: node['railsapp']['db']['password']
+    rails_env: node['rubystack']['rails_env'],
+    database: node['rubystack']['db']['name'],
+    hostname: node['rubystack']['db']['hostname'],
+    username: node['rubystack']['db']['username'],
+    password: node['rubystack']['db']['password']
   )
   not_if { ::File.exist? database_path }
 end
@@ -48,8 +48,8 @@ template 'create_secrets_config' do
   path secrets_path
   source 'secrets.yml.erb'
   variables(
-    rails_env: node['railsapp']['rails_env'],
-    secret_key_base: node['railsapp']['webserver']['secret_key_base']
+    rails_env: node['rubystack']['rails_env'],
+    secret_key_base: node['rubystack']['webserver']['secret_key_base']
   )
   not_if { ::File.exist? secrets_path }
 end

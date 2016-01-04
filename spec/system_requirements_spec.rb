@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe 'railsapp::system_requirements' do
+describe 'rubystack::system_requirements' do
   let(:application) { 'webapp' }
   let(:deployer) { 'deployer' }
   let(:ruby_version) { '2.3.0' }
 
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['railsapp']['application'] = application
-      node.set['railsapp']['deployer']['username'] = deployer
-      node.set['railsapp']['ruby_version'] = ruby_version
+      node.set['rubystack']['application'] = application
+      node.set['rubystack']['deployer']['username'] = deployer
+      node.set['rubystack']['ruby_version'] = ruby_version
     end.converge described_recipe
   end
 

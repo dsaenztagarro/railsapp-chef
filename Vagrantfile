@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  config.vm.hostname = 'railsapp-berkshelf'
+  config.vm.hostname = 'rubystack-berkshelf'
 
   # Set the version of chef to install using the vagrant-omnibus plugin
   # NOTE: You will need to install the vagrant-omnibus plugin:
@@ -60,7 +60,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.gui = false
 
     # Customize the amount of memory on the VM:
-    vb.name = 'test-kitchen-railsapp'
+    vb.name = 'test-kitchen-rubystack'
     vb.memory = '2048'
   end
 
@@ -92,7 +92,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-      'recipe[railsapp::default]'
+      'recipe[rubystack::default]'
     ]
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'railsapp::rails_deploy' do
+describe 'rubystack::rails_deploy' do
   let(:apache_group) { 'www-data' }
   let(:application) { 'webapp' }
   let(:deployer) { 'deployer' }
@@ -11,8 +11,8 @@ describe 'railsapp::rails_deploy' do
 
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['railsapp']['application'] = application
-      node.set['railsapp']['deployer']['username'] = deployer
+      node.set['rubystack']['application'] = application
+      node.set['rubystack']['deployer']['username'] = deployer
     end.converge described_recipe
   end
 

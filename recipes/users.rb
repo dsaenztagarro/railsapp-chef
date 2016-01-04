@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: railsapp
+# Cookbook Name:: rubystack
 # Recipe:: users
 #
 # Copyright 2015, David Saenz Tagarro
@@ -7,8 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
-deployer_username = node['railsapp']['deployer']['username']
-deployer_password = node['railsapp']['deployer']['password']
+deployer_username = node['rubystack']['deployer']['username']
+deployer_password = node['rubystack']['deployer']['password']
 
 user deployer_username do
   gid 'users'

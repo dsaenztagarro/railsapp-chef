@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: railsapp
+# Cookbook Name:: rubystack
 # Recipe:: system_requirements
 #
 # Copyright 2015, David Saenz Tagarro
@@ -15,7 +15,7 @@ package 'apache2'
 
 package 'git'
 
-ruby_version = node['railsapp']['ruby_version']
+ruby_version = node['rubystack']['ruby_version']
 
 include_recipe 'rvm_sl::user_install'
 

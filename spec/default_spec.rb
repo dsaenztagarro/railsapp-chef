@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe 'railsapp::default' do
+describe 'rubystack::default' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['database']['postgresql']['version'] = '9.3'
-      node.set['railsapp']['deployer']['username'] = 'deployer'
-      node.set['railsapp']['deployer']['password'] = 'deployer'
+      node.set['rubystack']['deployer']['username'] = 'deployer'
+      node.set['rubystack']['deployer']['password'] = 'deployer'
     end.converge described_recipe
   end
 
@@ -24,8 +24,8 @@ describe 'railsapp::default' do
      system_requirements
      database
      webserver).each do |recipe|
-    it "includes the `railsapp::#{recipe}` recipe" do
-      expect(chef_run).to include_recipe("railsapp::#{recipe}")
+    it "includes the `rubystack::#{recipe}` recipe" do
+      expect(chef_run).to include_recipe("rubystack::#{recipe}")
     end
   end
 

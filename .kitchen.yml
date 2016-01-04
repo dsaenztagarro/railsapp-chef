@@ -18,9 +18,9 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[railsapp::default]
+      - recipe[rubystack::default]
     attributes:
-      railsapp:
+      rubystack:
         application: 'myfamilyweb'
         rails_env: 'production'
         deployer:

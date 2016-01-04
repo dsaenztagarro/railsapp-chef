@@ -1,10 +1,10 @@
-[![Cookbook Version](https://img.shields.io/cookbook/v/railsapp-chef.svg)](https://community.opscode.com/cookbooks/railsapp-chef)
-[![Build Status](https://travis-ci.org/dsaenztagarro/railsapp-chef.svg?branch=master)](https://travis-ci.org/dsaenztagarro/railsapp-chef)
-[![Code Climate](https://codeclimate.com/github/dsaenztagarro/railsapp-chef/badges/gpa.svg)](https://codeclimate.com/github/dsaenztagarro/railsapp-chef)
-[![Coverage Status](https://coveralls.io/repos/dsaenztagarro/railsapp-chef/badge.svg?branch=master&service=github)](https://coveralls.io/github/dsaenztagarro/railsapp-chef?branch=master)
-[![Dependency Status](https://gemnasium.com/dsaenztagarro/railsapp-chef.svg)](https://gemnasium.com/dsaenztagarro/railsapp-chef)
+[![Cookbook Version](https://img.shields.io/cookbook/v/rubystack-chef.svg)](https://community.opscode.com/cookbooks/railsapp-chef)
+[![Build Status](https://travis-ci.org/dsaenztagarro/rubystack-chef.svg?branch=master)](https://travis-ci.org/dsaenztagarro/railsapp-chef)
+[![Code Climate](https://codeclimate.com/github/dsaenztagarro/rubystack-chef/badges/gpa.svg)](https://codeclimate.com/github/dsaenztagarro/railsapp-chef)
+[![Coverage Status](https://coveralls.io/repos/dsaenztagarro/rubystack-chef/badge.svg?branch=master&service=github)](https://coveralls.io/github/dsaenztagarro/railsapp-chef?branch=master)
+[![Dependency Status](https://gemnasium.com/dsaenztagarro/rubystack-chef.svg)](https://gemnasium.com/dsaenztagarro/railsapp-chef)
 
-railsapp Cookbook
+rubystack Cookbook
 =================
 
 My skeleton cookbook for provisioning rails apps
@@ -28,14 +28,14 @@ Requirements
 Attributes
 ----------
 
-#### railsapp::default
+#### rubystack::default
 
 See `attributes/default.rb` for default values.
 
-* `node['railsapp']['application']` - The application name
-* `node['railsapp']['rails_env']` - The rails environment
-* `node['railsapp']['deployer']['username']` - The deployer user name
-* `node['railsapp']['deployer']['password']` - The deployer user password
+* `node['rubystack']['application']` - The application name
+* `node['rubystack']['rails_env']` - The rails environment
+* `node['rubystack']['deployer']['username']` - The deployer user name
+* `node['rubystack']['deployer']['password']` - The deployer user password
 
 Generate new password with:
 
@@ -43,34 +43,34 @@ Generate new password with:
 openssl passwd -1 "theplaintextpassword"
 ```
 
-#### railsapp::database
+#### rubystack::database
 
 See `attributes/database.rb` for default values.
 
-* `node['railsapp']['db']['name']` - The database name
-* `node['railsapp']['db']['hostname']` - The hostname of the database
-* `node['railsapp']['db']['username']` - The username of the database
-* `node['railsapp']['db']['password']` - The password of the database
+* `node['rubystack']['db']['name']` - The database name
+* `node['rubystack']['db']['hostname']` - The hostname of the database
+* `node['rubystack']['db']['username']` - The username of the database
+* `node['rubystack']['db']['password']` - The password of the database
 
-#### railsapp::webserver
+#### rubystack::webserver
 
 See `attributes/webserver.rb` for default values.
 
-* `node['railsapp']['webserver']['name']` - The server name
-* `node['railsapp']['webserver']['document_root']` - The document root of the virtualhost
+* `node['rubystack']['webserver']['name']` - The server name
+* `node['rubystack']['webserver']['document_root']` - The document root of the virtualhost
 
 Usage
 -----
 
-#### railsapp::default
+#### rubystack::default
 
-Just include `railsapp` in your node's `run_list`:
+Just include `rubystack` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[railsapp]"
+    "recipe[rubystack]"
   ]
 }
 ```
@@ -79,7 +79,7 @@ Sharing
 -------
 
 ```
-knife cookbook site share "railsapp" "Applications"
+knife cookbook site share "rubystack" "Applications"
 ```
 
 Contributing

@@ -1,4 +1,4 @@
-Testing the railsapp cookbook
+Testing the rubystack cookbook
 =====
 
 This cookbook includes both unit tests via
@@ -24,8 +24,8 @@ Development Kit](http://downloads.getchef.com/chef-dk/) - Version 0.3.4
 Clone the latest version of the cookbook from the repository.
 
 ```bash
-git clone git@github.com:dsaenztagarro/railsapp-chef.git
-cd railsapp-chef
+git clone git@github.com:dsaenztagarro/rubystack-chef.git
+cd rubystack-chef
 ```
 
 Running ChefSpec
@@ -49,4 +49,4 @@ To run ChefSpec for a specific recipe:
 Running Test Kitchen
 -----
 
-Test Kitchen test suites are defined in [.kitchen.yml](https://github.com/dsaenztagarro/railsapp_chef/blob/master/.kitchen.yml). Running `kitchen test` will cause Test Kitchen to spin up each railsapp in turn.
+Test Kitchen test suites are defined in [.kitchen.yml](https://github.com/dsaenztagarro/rubystack_chef/blob/master/.kitchen.yml). Running `kitchen test` will cause Test Kitchen to spin up each railsapp in turn.

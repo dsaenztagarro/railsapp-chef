@@ -20,6 +20,16 @@ describe 'railsapp::default' do
     commands.each { |command| stub_command(command).and_return(false) }
   end
 
+  %w(users
+     system_requirements
+     database
+     webserver
+     deploy).each do |recipe|
+    it "includes the `railsapp::#{recipe}` recipe" do
+      expect(chef_run).to include_recipe("railsapp::#{recipe}")
+    end
+  end
+
   it 'converges successfully' do
     expect { chef_run }.to_not raise_error
   end

@@ -2,7 +2,7 @@ source 'https://supermarket.chef.io'
 
 metadata
 
-cookbook 'database_sl', '0.1.4'
+cookbook 'database_sl', '0.1.5'
 cookbook 'rvm_sl', '0.1.7'
 cookbook 'phusionpassenger', '0.1.2'
 

@@ -10,18 +10,19 @@
 include_recipe 'phusionpassenger'
 
 webserver = node['rubystack']['webserver']
-username = node['rubystack']['username']
+deployer_username = node['rubystack']['deployer']['username']
+deployer_home = node['rubystack']['deployer']['home']
 
 passenger_site 'creating_site' do
   document_root node['rubystack']['webserver']['document_root']
-  environment 'USER' => username, 'HOME' => File.join('/home', username)
+  environment 'USER' => deployer_username, 'HOME' => deployer_home
   server_name webserver['server_name']
   server_alias webserver['server_alias']
-  user username
+  user deployer_username
 end
 
 passenger_site 'enabling_site' do
   server_name webserver['server_name']
-  user username
+  user deployer_username
   action :enable
 end

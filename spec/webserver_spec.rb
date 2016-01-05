@@ -11,7 +11,8 @@ describe 'rubystack::webserver' do
       node.set['rubystack']['webserver']['server_name'] = server_name
       node.set['rubystack']['webserver']['server_alias'] = server_alias
       node.set['rubystack']['webserver']['document_root'] = document_root
-      node.set['rubystack']['username'] = username
+      node.set['rubystack']['deployer']['username'] = username
+      node.set['rubystack']['deployer']['home'] = '/home/deployer'
     end.converge described_recipe
   end
 

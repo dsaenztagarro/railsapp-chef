@@ -1,6 +1,8 @@
 default['rubystack']['application'] = 'webapp'
 default['rubystack']['rails_env'] = 'production'
-default['rubystack']['username'] = 'deployer'
+default['rubystack']['deployer']['username'] = 'deployer'
+default['rubystack']['deployer']['password'] = 'deployer'
+default['rubystack']['deployer']['home'] = '/home/deployer'
 default['rubystack']['ruby_version'] = 'ruby-2.2.3'
 
 override['rvm']['user']['name'] = 'deployer'

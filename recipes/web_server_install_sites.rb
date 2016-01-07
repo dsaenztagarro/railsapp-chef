@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: rubystack
-# Recipe:: web_server_sites
+# Recipe:: web_server_install_sites
 #
 # Copyright 2015, David Saenz Tagarro
 #

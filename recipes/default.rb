@@ -10,6 +10,7 @@
 %w(users
    system_requirements
    database
-   webserver).each do |recipe|
+   web_server
+   web_server_install_sites).each do |recipe|
   include_recipe "rubystack::#{recipe}"
 end

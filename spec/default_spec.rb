@@ -23,7 +23,8 @@ describe 'rubystack::default' do
   %w(users
      system_requirements
      database
-     webserver).each do |recipe|
+     web_server
+     web_server_install_sites).each do |recipe|
     it "includes the `rubystack::#{recipe}` recipe" do
       expect(chef_run).to include_recipe("rubystack::#{recipe}")
     end

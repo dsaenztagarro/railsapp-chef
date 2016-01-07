@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'rubystack::web_server_sites' do
+describe 'rubystack::web_server_install_sites' do
   let(:document_root) { '/var/www/mywebapp/public' }
   let(:server_name) { 'mywebapp.test' }
   let(:server_alias) { %w(mywebapp.test) }
@@ -17,10 +17,6 @@ describe 'rubystack::web_server_sites' do
       node.set['deployer']['username'] = username
       node.set['deployer']['home'] = '/home/deployer'
     end.converge described_recipe
-  end
-
-  it 'includes the `phusionpassenger` recipe' do
-    expect(chef_run).to include_recipe('phusionpassenger')
   end
 
   it 'creates a new passenger site' do

@@ -30,10 +30,6 @@ describe 'rubystack::system_requirements' do
     expect(chef_run).to install_package('git')
   end
 
-  it 'installs a apache2 package with the default action' do
-    expect(chef_run).to install_package('apache2')
-  end
-
   it 'installs valid ruby version' do
     expect(chef_run).to create_rvm_rubies(ruby_version)
   end

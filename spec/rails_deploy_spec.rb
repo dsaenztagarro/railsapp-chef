@@ -5,14 +5,29 @@ describe 'rubystack::rails_deploy' do
   let(:application) { 'webapp' }
   let(:deployer) { 'deployer' }
   let(:deploy_dir) { "/var/www/#{application}" }
+  let(:shared_config_dir) { "#{deploy_dir}/shared/config" }
 
-  let(:secrets_path) { "#{deploy_dir}/shared/config/secrets.yml" }
-  let(:database_path) { "#{deploy_dir}/shared/config/database.yml" }
+  let(:secrets_path) { "#{shared_config_dir}/secrets.yml" }
+  let(:database_path) { "#{shared_config_dir}/database.yml" }
 
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['rubystack']['application'] = application
       node.set['users']['deployer']['username'] = deployer
+      node.set['rails_apps'] = [
+        {
+          deploy_dir: deploy_dir,
+          rails_env: 'production',
+          database: {
+            hostname: 'localhost',
+            name: 'myfamilyweb',
+            password: 'dbuser123',
+            username: 'dbuser'
+          },
+          secrets: {
+            secret_key_base: '8d7d7213485b5b960f753222a5e3f2974aaa19c3c99c84b575c0d7db409dc093bbcc8c5f08ec77c1a057631b9df50d6679bd3873da7b28030ce23075d8ebc127'
+          }
+        }
+      ]
     end.converge described_recipe
   end
 

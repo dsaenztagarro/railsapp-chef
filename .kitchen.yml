@@ -20,17 +20,24 @@ suites:
     run_list:
       - recipe[rubystack::default]
     attributes:
-      rubystack:
-        application: 'myfamilyweb'
-        rails_env: 'production'
+      users:
         deployer:
           username: 'deployer'
           password: '$1$u8VO7mUh$sN6JdmyJ094zso8nDLRmI/'
-        db:
-          name: 'myfamilyweb'
-          username: 'dbuser'
-          password: 'dbuser123'
-        webserver:
-          name: 'myfamilyweb.local'
-          document_root: '/var/www/myfamilyweb/current/public'
-          secret_key_base: '8d7d7213485b5b960f753222a5e3f2974aaa19c3c99c84b575c0d7db409dc093bbcc8c5f08ec77c1a057631b9df50d6679bd3873da7b28030ce23075d8ebc127'
+      web_server:
+        sites:
+          - name: 'myfamilyweb.local'
+            document_root: '/var/www/myfamilyweb/current/public'
+      rails_apps:
+        - deploy_dir: '/var/www/myfamilyweb'
+          rails_env: 'production'
+          database:
+            adapter: 'postgresql'
+            hostname: 'localhost'
+            name: 'myfamilyweb'
+            password: 'dbuser123'
+            username: 'dbuser'
+          secrets:
+            secret_key_base: '8d7d7213485b5b960f753222a5e3f2974aaa19c3c99c84b575c0d7db409dc093bbcc8c5f08ec77c1a057631b9df50d6679bd3873da7b28030ce23075d8ebc127'
+
+

@@ -8,50 +8,54 @@
 #
 
 apache_group = 'www-data'
-deployer = nodeV['users']['deployer']['username']
-deploy_dir = "/var/www/#{node['rubystack']['application']}"
+deployer = node['users']['deployer']['username']
 
-directory deploy_dir do
-  group apache_group
-  owner deployer
-  recursive true
-end
+node['rails_apps'].each do |app|
+  deploy_dir = app[:deploy_dir]
+  shared_config_dir = "#{deploy_dir}/shared/config"
 
-%W(#{deploy_dir}/shared #{deploy_dir}/shared/config).each do |path|
-  directory path do
+  directory deploy_dir do
     group apache_group
     owner deployer
     recursive true
   end
-end
 
-database_path = "#{deploy_dir}/shared/config/database.yml"
-template 'create_database_config' do
-  group apache_group
-  owner deployer
-  path database_path
-  source 'database.yml.erb'
-  variables(
-    rails_env: node['rubystack']['rails_env'],
-    database: node['rubystack']['db']['name'],
-    hostname: node['rubystack']['db']['hostname'],
-    username: node['rubystack']['db']['username'],
-    password: node['rubystack']['db']['password']
-  )
-  not_if { ::File.exist? database_path }
-end
+  %W(#{deploy_dir}/shared #{deploy_dir}/shared/config).each do |path|
+    directory path do
+      group apache_group
+      owner deployer
+      recursive true
+    end
+  end
 
-secrets_path = "#{deploy_dir}/shared/config/secrets.yml"
-template 'create_secrets_config' do
-  group apache_group
-  owner deployer
-  path secrets_path
-  source 'secrets.yml.erb'
-  variables(
-    rails_env: node['rubystack']['rails_env'],
-    secret_key_base: node['rubystack']['webserver']['secret_key_base']
-  )
-  not_if { ::File.exist? secrets_path }
+  database_path = File.join shared_config_dir, 'database.yml'
+  template 'create_database_config' do
+    group apache_group
+    owner deployer
+    path database_path
+    source 'database.yml.erb'
+    variables(
+      rails_env: app[:rails_env],
+      database: app[:database][:name],
+      hostname: app[:database][:hostname],
+      username: app[:database][:username],
+      password: app[:database][:password]
+    )
+    not_if { ::File.exist? database_path }
+  end
+
+  secrets_path = File.join shared_config_dir, 'secrets.yml'
+  template 'create_secrets_config' do
+    group apache_group
+    owner deployer
+    path secrets_path
+    source 'secrets.yml.erb'
+    variables(
+      rails_env: app[:rails_env],
+      secret_key_base: app[:secrets][:secret_key_base]
+    )
+    not_if { ::File.exist? secrets_path }
+  end
 end
 
 # TODO: Extract to nodejs_sl cookbook

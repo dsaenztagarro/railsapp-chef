@@ -14,13 +14,9 @@ node['rails_apps'].each do |app|
   deploy_dir = app[:deploy_dir]
   shared_config_dir = "#{deploy_dir}/shared/config"
 
-  directory deploy_dir do
-    group apache_group
-    owner deployer
-    recursive true
-  end
-
-  %W(#{deploy_dir}/shared #{deploy_dir}/shared/config).each do |path|
+  %W(#{deploy_dir}
+     #{deploy_dir}/shared
+     #{deploy_dir}/shared/config).each do |path|
     directory path do
       group apache_group
       owner deployer

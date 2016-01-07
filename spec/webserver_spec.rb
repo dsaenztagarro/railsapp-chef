@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'rubystack::webserver' do
+describe 'rubystack::web_server_sites' do
   let(:document_root) { '/var/www/mywebapp/public' }
   let(:server_name) { 'mywebapp.test' }
   let(:server_alias) { %w(mywebapp.test) }
@@ -8,11 +8,14 @@ describe 'rubystack::webserver' do
 
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['rubystack']['webserver']['server_name'] = server_name
-      node.set['rubystack']['webserver']['server_alias'] = server_alias
-      node.set['rubystack']['webserver']['document_root'] = document_root
-      node.set['rubystack']['deployer']['username'] = username
-      node.set['rubystack']['deployer']['home'] = '/home/deployer'
+      node.set['web_server']['sites'] = [
+        { server_name: server_name,
+          server_alias: server_alias,
+          document_root: document_root,
+          friendly_error_pages: true }
+      ]
+      node.set['deployer']['username'] = username
+      node.set['deployer']['home'] = '/home/deployer'
     end.converge described_recipe
   end
 

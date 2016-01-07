@@ -7,13 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
-deployer_username = node['rubystack']['deployer']['username']
-deployer_password = node['rubystack']['deployer']['password']
+deployer = node['users']['deployer']
 
-user deployer_username do
+user deployer['username'] do
   gid 'users'
-  home "/home/#{deployer_username}"
-  password deployer_password
+  home deployer['home']
+  password deployer['password']
   shell '/bin/bash'
   supports manage_home: true
   uid 1000
@@ -21,6 +20,6 @@ end
 
 group 'www-data' do
   append true
-  members deployer_username
+  members deployer['username']
   action :modify
 end

@@ -11,8 +11,6 @@ execute 'apt-get update' do
   action :run
 end
 
-package 'apache2'
-
 package 'git'
 
 ruby_version = node['rubystack']['ruby_version']

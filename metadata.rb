@@ -10,6 +10,9 @@ depends 'database_sl'
 depends 'rvm_sl'
 depends 'phusionpassenger'
 
+recipe 'rubystack::web_server_install', 'Installs Phusion Passenger web server'
+recipe 'rubystack::web_server_sites', 'Enable ruby application web sites'
+
 %w(debian ubuntu).each { |os| supports os }
 
 source_url 'https://github.com/dsaenztagarro/rubystack' if respond_to?(:source_url)

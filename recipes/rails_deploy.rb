@@ -8,7 +8,7 @@
 #
 
 apache_group = 'www-data'
-deployer = node['rubystack']['deployer']['username']
+deployer = nodeV['users']['deployer']['username']
 deploy_dir = "/var/www/#{node['rubystack']['application']}"
 
 directory deploy_dir do

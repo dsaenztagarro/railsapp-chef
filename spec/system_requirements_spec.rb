@@ -8,7 +8,7 @@ describe 'rubystack::system_requirements' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['rubystack']['application'] = application
-      node.set['rubystack']['deployer']['username'] = deployer
+      node.set['users']['deployer']['username'] = deployer
       node.set['rubystack']['ruby_version'] = ruby_version
     end.converge described_recipe
   end

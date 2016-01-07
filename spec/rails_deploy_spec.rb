@@ -12,7 +12,7 @@ describe 'rubystack::rails_deploy' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['rubystack']['application'] = application
-      node.set['rubystack']['deployer']['username'] = deployer
+      node.set['users']['deployer']['username'] = deployer
     end.converge described_recipe
   end
 

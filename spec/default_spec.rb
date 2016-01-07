@@ -4,8 +4,8 @@ describe 'rubystack::default' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['database']['postgresql']['version'] = '9.3'
-      node.set['rubystack']['deployer']['username'] = 'deployer'
-      node.set['rubystack']['deployer']['password'] = 'deployer'
+      node.set['users']['deployer']['username'] = 'deployer'
+      node.set['users']['deployer']['password'] = 'deployer'
     end.converge described_recipe
   end
 

@@ -1,19 +1,18 @@
 require 'spec_helper'
 
 describe 'rubystack::web_server_install_sites' do
-  let(:document_root) { '/var/www/mywebapp/public' }
   let(:server_name) { 'mywebapp.test' }
-  let(:server_alias) { %w(mywebapp.test) }
   let(:username) { 'deployer' }
+  let(:site_attributes) do
+    { server_name: server_name,
+      server_alias: %w(mywebapp.test),
+      document_root: '/var/www/mywebapp/public',
+      friendly_error_pages: true }
+  end
 
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['web_server']['sites'] = [
-        { server_name: server_name,
-          server_alias: server_alias,
-          document_root: document_root,
-          friendly_error_pages: true }
-      ]
+      node.set['web_server']['sites'] = [site_attributes]
     end.converge described_recipe
   end
 
@@ -25,13 +24,9 @@ describe 'rubystack::web_server_install_sites' do
     )
   end
 
-  it 'creates a new passenger site' do
+  it 'creates a new passenger site with valid site attributes' do
     expect(chef_run).to(
-      create_passenger_site('creating_site').with(
-        server_name: server_name,
-        server_alias: server_alias,
-        document_root: document_root,
-        user: username))
+      create_passenger_site('creating_site').with(site_attributes))
   end
 
   it 'enables a new passenger site' do

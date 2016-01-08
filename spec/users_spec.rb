@@ -16,12 +16,12 @@ describe 'rubystack::users' do
   end
 
   before(:each) do
-    stub_data_bag_item(:users, 'deployer').and_return({
+    stub_data_bag_item(:users, 'deployer').and_return(
       id: deployer_id,
       home: deployer_home,
       password: deployer_password,
       shell: deployer_shell
-    })
+    )
     stub_command('which rvm').and_return(false)
     stub_command('grep -q rvm $HOME/.bashrc').and_return(false)
   end

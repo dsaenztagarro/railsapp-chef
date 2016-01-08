@@ -64,7 +64,7 @@ Usage
 
 #### rubystack::default
 
-Just include `rubystack` in your node's `run_list`:
+Just include `rubystack` in your node `run_list`:
 
 ```json
 {
@@ -93,4 +93,4 @@ Contributing
 
 License and Authors
 -------------------
-Authors: David Saenz Tagarro
+`Authors`: David Saenz Tagarro

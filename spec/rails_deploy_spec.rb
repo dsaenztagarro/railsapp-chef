@@ -32,10 +32,10 @@ describe 'rubystack::rails_deploy' do
   end
 
   before(:each) do
-    stub_data_bag_item(:users, 'deployer').and_return({
+    stub_data_bag_item(:users, 'deployer').and_return(
       id: 'deployer',
       password: '$1$u8VO7mUh$sN6JdmyJ094zso8nDLRmI/'
-    })
+    )
     stub_command('which node').and_return(false)
   end
 

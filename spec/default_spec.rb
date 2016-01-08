@@ -9,12 +9,12 @@ describe 'rubystack::default' do
   end
 
   before(:each) do
-    stub_data_bag_item(:users, 'deployer').and_return({
+    stub_data_bag_item(:users, 'deployer').and_return(
       id: 'deployer',
       home: '/home/deployer',
       password: '$1$u8VO7mUh$sN6JdmyJ094zso8nDLRmI/',
       shell: '/bin/bash'
-    })
+    )
     commands = [
       'which rvm',
       'grep -q rvm $HOME/.bashrc',

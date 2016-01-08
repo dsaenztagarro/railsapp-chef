@@ -14,9 +14,15 @@ describe 'rubystack::web_server_install_sites' do
           document_root: document_root,
           friendly_error_pages: true }
       ]
-      node.set['deployer']['username'] = username
-      node.set['deployer']['home'] = '/home/deployer'
     end.converge described_recipe
+  end
+
+  before(:each) do
+    stub_data_bag_item(:users, 'deployer').and_return(
+      id: username,
+      home: '/home/deployer',
+      password: '$1$u8VO7mUh$sN6JdmyJ094zso8nDLRmI/'
+    )
   end
 
   it 'creates a new passenger site' do

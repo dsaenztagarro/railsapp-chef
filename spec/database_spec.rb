@@ -7,9 +7,13 @@ describe 'rubystack::database' do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['database']['postgresql']['package_version'] = postgresql_package_version
       node.set['database']['postgresql']['version'] = postgresql_version
-      node.set['rubystack']['db']['name'] = 'db_production'
-      node.set['rubystack']['db']['user']['name'] = 'admin'
-      node.set['rubystack']['db']['user']['password'] = 'admin1234'
+      node.set['rails_apps'] = [{
+        database: {
+          name: 'db_production',
+          username: 'admin',
+          password: 'admin1234'
+        }
+      }]
     end.converge described_recipe
   end
 

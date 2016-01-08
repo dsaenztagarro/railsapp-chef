@@ -7,9 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 
-deployer = node['users']['deployer']
+deployer = data_bag_item(:users, 'deployer')
 
-user deployer['username'] do
+user deployer['id'] do
   gid 'users'
   home deployer['home']
   password deployer['password']
@@ -20,6 +20,6 @@ end
 
 group 'www-data' do
   append true
-  members deployer['username']
+  members deployer['id']
   action :modify
 end

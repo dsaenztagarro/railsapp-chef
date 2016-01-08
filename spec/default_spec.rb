@@ -4,12 +4,17 @@ describe 'rubystack::default' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['database']['postgresql']['version'] = '9.3'
-      node.set['users']['deployer']['username'] = 'deployer'
-      node.set['users']['deployer']['password'] = 'deployer'
+      node.set['rails_apps'] = []
     end.converge described_recipe
   end
 
   before(:each) do
+    stub_data_bag_item(:users, 'deployer').and_return({
+      id: 'deployer',
+      home: '/home/deployer',
+      password: '$1$u8VO7mUh$sN6JdmyJ094zso8nDLRmI/',
+      shell: '/bin/bash'
+    })
     commands = [
       'which rvm',
       'grep -q rvm $HOME/.bashrc',

@@ -8,26 +8,27 @@
 #
 
 apache_group = 'www-data'
-deployer = node['users']['deployer']['username']
+deployer = data_bag_item(:users, 'deployer')
 
 node['rails_apps'].each do |app|
   deploy_dir = app[:deploy_dir]
-  shared_config_dir = "#{deploy_dir}/shared/config"
 
   %W(#{deploy_dir}
      #{deploy_dir}/shared
      #{deploy_dir}/shared/config).each do |path|
     directory path do
       group apache_group
-      owner deployer
+      owner deployer['id']
       recursive true
     end
   end
 
+  shared_config_dir = "#{deploy_dir}/shared/config"
+
   database_path = File.join shared_config_dir, 'database.yml'
   template 'create_database_config' do
     group apache_group
-    owner deployer
+    owner deployer['id']
     path database_path
     source 'database.yml.erb'
     variables(
@@ -43,7 +44,7 @@ node['rails_apps'].each do |app|
   secrets_path = File.join shared_config_dir, 'secrets.yml'
   template 'create_secrets_config' do
     group apache_group
-    owner deployer
+    owner deployer['id']
     path secrets_path
     source 'secrets.yml.erb'
     variables(

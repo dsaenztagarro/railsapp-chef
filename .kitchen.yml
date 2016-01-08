@@ -17,13 +17,10 @@ platforms:
 
 suites:
   - name: default
+    data_bags_path: 'test/integration/data_bags'
     run_list:
       - recipe[rubystack::default]
     attributes:
-      users:
-        deployer:
-          username: 'deployer'
-          password: '$1$u8VO7mUh$sN6JdmyJ094zso8nDLRmI/'
       web_server:
         sites:
           - name: 'myfamilyweb.local'

@@ -1,8 +1,8 @@
-[![Cookbook Version](https://img.shields.io/cookbook/v/rubystack-chef.svg)](https://community.opscode.com/cookbooks/railsapp-chef)
-[![Build Status](https://travis-ci.org/dsaenztagarro/rubystack-chef.svg?branch=master)](https://travis-ci.org/dsaenztagarro/railsapp-chef)
-[![Code Climate](https://codeclimate.com/github/dsaenztagarro/rubystack-chef/badges/gpa.svg)](https://codeclimate.com/github/dsaenztagarro/railsapp-chef)
-[![Coverage Status](https://coveralls.io/repos/dsaenztagarro/rubystack-chef/badge.svg?branch=master&service=github)](https://coveralls.io/github/dsaenztagarro/railsapp-chef?branch=master)
-[![Dependency Status](https://gemnasium.com/dsaenztagarro/rubystack-chef.svg)](https://gemnasium.com/dsaenztagarro/railsapp-chef)
+[![Cookbook Version](https://img.shields.io/cookbook/v/rubystack.svg)](https://community.opscode.com/cookbooks/railsapp)
+[![Build Status](https://travis-ci.org/dsaenztagarro/rubystack.svg?branch=master)](https://travis-ci.org/dsaenztagarro/railsapp)
+[![Code Climate](https://codeclimate.com/github/dsaenztagarro/rubystack/badges/gpa.svg)](https://codeclimate.com/github/dsaenztagarro/railsapp)
+[![Coverage Status](https://coveralls.io/repos/dsaenztagarro/rubystack/badge.svg?branch=master&service=github)](https://coveralls.io/github/dsaenztagarro/railsapp?branch=master)
+[![Dependency Status](https://gemnasium.com/dsaenztagarro/rubystack.svg)](https://gemnasium.com/dsaenztagarro/railsapp)
 
 rubystack Cookbook
 =================

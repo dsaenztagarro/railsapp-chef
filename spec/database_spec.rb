@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe 'rubystack::database' do
-  let(:postgresql_package_version) { '9.4+170.pgdg14.04+1' }
-  let(:postgresql_version) { '9.4' }
+  let(:package_version) { '9.4+170.pgdg14.04+1' }
+  let(:version) { '9.4' }
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set['database']['postgresql']['package_version'] = postgresql_package_version
-      node.set['database']['postgresql']['version'] = postgresql_version
+      node.set['database']['postgresql']['package_version'] = package_version
+      node.set['database']['postgresql']['version'] = version
       node.set['rails_apps'] = [{
         database: {
           name: 'db_production',
@@ -26,12 +26,12 @@ describe 'rubystack::database' do
   end
 
   it 'installs specific version of db server on node' do
-    packages = ['postgresql', 'postgresql-contrib']
-    expect(chef_run).to install_package(packages).with(version: postgresql_package_version)
+    packages = %W(postgresql-#{version} postgresql-contrib-#{version})
+    expect(chef_run).to install_package('specifying db server').with(package_name: packages)
   end
 
   it 'installs specific version of db client on node' do
-    expect(chef_run).to install_package('postgresql-client').with(version: postgresql_package_version)
+    expect(chef_run).to install_package('specifying db client').with(package_name: "postgresql-client-#{version}")
   end
 
   it 'creates database user' do

@@ -5,7 +5,7 @@ This file is used to list changes made in each version of the rubystack cookbook
 
 0.1.0
 -----
-- [your_name] - Initial release of rubystack
+- Initial release of rubystack
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

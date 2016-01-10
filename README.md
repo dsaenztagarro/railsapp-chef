@@ -25,6 +25,27 @@ Requirements
 - rvm_sl
 - phussionpassenger
 
+#### Data bags
+
+Depends on data bag `users` and data bag item `deployer`.
+
+```
+# data_bags/users/deployer.json.sample
+
+{
+  "id": "deployer",
+  "home": "/home/deployer",
+  "password": "abcdefghijklmnopqrstuvwxyz0123456789",
+  "shell": "/bin/bash"
+}
+```
+
+Generate new password with:
+
+```
+openssl passwd -1 "theplaintextpassword"
+```
+
 Attributes
 ----------
 
@@ -36,12 +57,6 @@ See `attributes/default.rb` for default values.
 * `node['rubystack']['rails_env']` - The rails environment
 * `node['rubystack']['deployer']['username']` - The deployer user name
 * `node['rubystack']['deployer']['password']` - The deployer user password
-
-Generate new password with:
-
-```
-openssl passwd -1 "theplaintextpassword"
-```
 
 #### rubystack::database
 

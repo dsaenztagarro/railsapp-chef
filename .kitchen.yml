@@ -39,6 +39,6 @@ suites:
             password: 'dbuser123'
             username: 'dbuser'
           secrets:
-            secret_key_base: '8d7d7213485b5b960f753222a5e3f2974aaa19c3c99c84b575c0d7db409dc093bbcc8c5f08ec77c1a057631b9df50d6679bd3873da7b28030ce23075d8ebc127'
+            secret_key_base: 'abcdefghijklmnopqrstuvwxyz0123456789'
 
 

@@ -3,7 +3,7 @@ rubystack CHANGELOG
 
 This file is used to list changes made in each version of the rubystack cookbook.
 
-0.1.0
+0.1.3
 -----
 - Initial release of rubystack
 

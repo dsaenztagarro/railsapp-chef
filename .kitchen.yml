@@ -24,7 +24,10 @@ suites:
       web_server:
         sites:
           - server_name: 'myfamilyweb.local'
+            server_alias:
+              - 'www.myfamilyweb.local'
             document_root: '/var/www/myfamilyweb/current/public'
+            friendly_error_pages: true
       rails_apps:
         - deploy_dir: '/var/www/myfamilyweb'
           rails_env: 'production'

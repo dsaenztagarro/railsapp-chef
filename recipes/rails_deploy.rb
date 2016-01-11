@@ -9,6 +9,8 @@
 
 apache_group = 'www-data'
 deployer = data_bag_item(:users, 'deployer')
+username = deployer['id']
+home = deployer['home']
 
 node['rails_apps'].each do |app|
   deploy_dir = app[:deploy_dir]
@@ -67,8 +69,10 @@ remote_file 'adding_node_installer' do
 end
 
 execute 'running_node_installer' do
-  user 'root'
   command "sudo -E bash #{tmp_node_installer_path}"
+  cwd home
+  environment 'USER' => username, 'HOME' => home
+  user username
   not_if 'which node'
 end
 

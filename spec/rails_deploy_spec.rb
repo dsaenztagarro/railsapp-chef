@@ -34,6 +34,7 @@ describe 'rubystack::rails_deploy' do
   before(:each) do
     stub_data_bag_item(:users, 'deployer').and_return(
       id: 'deployer',
+      home: '/home/deployer',
       password: '$1$u8VO7mUh$sN6JdmyJ094zso8nDLRmI/'
     )
     stub_command('which node').and_return(false)
@@ -113,7 +114,7 @@ describe 'rubystack::rails_deploy' do
 
     it 'skips running node installer' do
       expect(chef_run).to_not run_execute('running_node_installer').with(
-        user: 'root'
+        user: ''
       )
     end
   end

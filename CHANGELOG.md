@@ -11,6 +11,10 @@ This file is used to list changes made in each version of the rubystack cookbook
 -----
 - Update `database_sl` version to `0.1.8`
 
+0.1.5
+-----
+- Install node as deployer user
+
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 

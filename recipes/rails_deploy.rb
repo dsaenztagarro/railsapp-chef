@@ -9,8 +9,6 @@
 
 apache_group = 'www-data'
 deployer = data_bag_item(:users, 'deployer')
-username = deployer['id']
-home = deployer['home']
 
 node['rails_apps'].each do |app|
   deploy_dir = app[:deploy_dir]

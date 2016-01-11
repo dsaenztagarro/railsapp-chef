@@ -7,6 +7,10 @@ This file is used to list changes made in each version of the rubystack cookbook
 -----
 - Initial release of rubystack
 
+0.1.4
+-----
+- Update `database_sl` version to `0.1.8`
+
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 

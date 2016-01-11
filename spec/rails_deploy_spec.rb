@@ -79,8 +79,16 @@ describe 'rubystack::rails_deploy' do
       )
     end
 
-    it 'runs a execute with running node installer' do
-      expect(chef_run).to run_execute('running_node_installer')
+    it 'runs a execute with running node source setup 5X' do
+      expect(chef_run).to run_execute('running_node_source_setup_5X')
+    end
+
+    it 'runs a execute with installing nodejs' do
+      expect(chef_run).to run_execute('installing_nodejs')
+    end
+
+    it 'runs a execute with installing build tools for nodejs' do
+      expect(chef_run).to run_execute('installing_build_tools_for_nodejs')
     end
   end
 

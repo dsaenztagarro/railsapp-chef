@@ -15,6 +15,10 @@ This file is used to list changes made in each version of the rubystack cookbook
 -----
 - Install node as deployer user
 
+0.1.6
+-----
+- Fix nodejs install process in `rails_deploy` recipe
+
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 

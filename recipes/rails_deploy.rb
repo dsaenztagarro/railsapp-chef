@@ -68,12 +68,21 @@ remote_file 'adding_node_installer' do
   not_if { ::File.exist? tmp_node_installer_path }
 end
 
-execute 'running_node_installer' do
+execute 'running_node_source_setup_5X' do
   command "sudo -E bash #{tmp_node_installer_path}"
   cwd home
   environment 'USER' => username, 'HOME' => home
   user username
   not_if 'which node'
+end
+
+execute 'installing_nodejs' do
+  command 'apt-get install -y nodejs'
+  not_if 'which node'
+end
+
+execute 'installing_build_tools_for_nodejs' do
+  command 'apt-get install -y build-essential'
 end
 
 # package 'nodejs'

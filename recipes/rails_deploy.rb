@@ -70,9 +70,6 @@ end
 
 execute 'running_node_source_setup_5X' do
   command "sudo -E bash #{tmp_node_installer_path}"
-  cwd home
-  environment 'USER' => username, 'HOME' => home
-  user username
   not_if 'which node'
 end
 

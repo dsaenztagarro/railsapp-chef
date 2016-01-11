@@ -19,7 +19,6 @@ suites:
   - name: default
     data_bags_path: 'test/integration/data_bags'
     run_list:
-      - recipe[rubystack::default]
       - recipe[rubystack::rails_deploy]
     attributes:
       web_server:

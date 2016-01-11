@@ -19,6 +19,10 @@ This file is used to list changes made in each version of the rubystack cookbook
 -----
 - Fix nodejs install process in `rails_deploy` recipe
 
+0.1.7
+-----
+- Fix nodejs install process in `rails_deploy` recipe
+
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 

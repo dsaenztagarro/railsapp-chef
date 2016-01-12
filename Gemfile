@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'net-ssh', '2.9.2'
-gem 'ridley', '4.3.2'
+# Gems locked for travis ci compatibility
+group :travis_ci do
+  gem 'net-ssh', '2.9.2'
+  gem 'ridley', '4.3.2'
+end
 
 group :development do
   gem 'test-kitchen', '~> 1.4.2'

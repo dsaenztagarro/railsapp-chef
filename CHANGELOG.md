@@ -23,6 +23,10 @@ This file is used to list changes made in each version of the rubystack cookbook
 -----
 - Fix nodejs install process in `rails_deploy` recipe
 
+0.1.8
+-----
+- Locks `ridley` and `net-ssh` gems to fit travis ci (group `travis_ci` in `Gemfile`)
+
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 

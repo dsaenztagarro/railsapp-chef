@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'net-ssh', '2.9.2'
+gem 'ridley', '4.3.2'
 
 group :development do
   gem 'test-kitchen', '~> 1.4.2'

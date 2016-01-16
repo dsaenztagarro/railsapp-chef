@@ -4,13 +4,13 @@ DEPENDENCIES
   rubystack
     path: .
     metadata: true
-  rvm_sl (= 0.1.9)
+  rvm_sl (= 0.2.0)
 
 GRAPH
   database_sl (0.1.8)
   phusionpassenger (0.1.2)
-  rubystack (0.1.7)
+  rubystack (0.1.8)
     database_sl (>= 0.0.0)
     phusionpassenger (>= 0.0.0)
     rvm_sl (>= 0.0.0)
-  rvm_sl (0.1.9)
+  rvm_sl (0.2.0)

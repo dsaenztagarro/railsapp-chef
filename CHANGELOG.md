@@ -27,6 +27,11 @@ This file is used to list changes made in each version of the rubystack cookbook
 -----
 - Locks `ridley` and `net-ssh` gems to fit travis ci (group `travis_ci` in `Gemfile`)
 
+0.1.9
+-----
+- Updates `rvm_sl` cookbook version to `0.2.0` to create `.gemrc` with no
+  documentation options.
+
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 

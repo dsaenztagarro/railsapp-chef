@@ -18,7 +18,7 @@ describe 'rubystack::database' do
   end
 
   before(:each) do
-    stub_command("sudo apt-key list | grep \"PostgreSQL Debian Repository\"").and_return(false)
+    stub_command('sudo apt-key list | grep "PostgreSQL Debian Repository"').and_return(false)
   end
 
   it 'installs postgresql db server' do

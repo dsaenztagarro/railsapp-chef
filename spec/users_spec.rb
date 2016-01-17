@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'rubystack::users' do
   let(:application) { 'webapp' }
-  let(:apache_group) { 'www-data' }
+  let(:apache_run_group) { 'www_data' }
 
   let(:deployer_id) { 'deployer' }
   let(:deployer_home) { '/home/deployer' }
@@ -12,6 +12,7 @@ describe 'rubystack::users' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04') do |node|
       node.set['rubystack']['application'] = application
+      node.set['apache']['run_group'] = apache_run_group
     end.converge described_recipe
   end
 
@@ -35,9 +36,15 @@ describe 'rubystack::users' do
   end
 
   it 'modifies apache group with appending the deployer user' do
-    expect(chef_run).to modify_group(apache_group).with(
+    expect(chef_run).to modify_group(apache_run_group).with(
       append: true,
       members: [deployer_id]
+    )
+  end
+
+  it 'runs a execute when setting apache run group as primary group' do
+    expect(chef_run).to run_execute('setting_apache_run_group_as_primary_group').with(
+      command: "usermod -g #{apache_run_group} #{deployer_id}"
     )
   end
 end

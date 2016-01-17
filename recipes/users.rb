@@ -18,13 +18,13 @@ user deployer['id'] do
   uid 1000
 end
 
-group 'www-data' do
+apache_run_group = node['apache']['run_group']
+
+group apache_run_group do
   append true
   members deployer['id']
   action :modify
 end
-
-apache_run_group = node['apache']['run_group']
 
 execute 'setting_apache_run_group_as_primary_group' do
   command "usermod -g #{apache_run_group} #{deployer['id']}"

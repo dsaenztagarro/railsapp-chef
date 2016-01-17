@@ -31,6 +31,7 @@ This file is used to list changes made in each version of the rubystack cookbook
 -----
 - Updates `rvm_sl` cookbook version to `0.2.0` to create `.gemrc` with no
   documentation options.
+- Sets the primary group of deployer user to apache run group
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

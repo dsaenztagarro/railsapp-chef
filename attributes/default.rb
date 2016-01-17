@@ -5,6 +5,8 @@ override['rvm']['user']['name'] = 'deployer'
 override['rvm']['user']['home'] = '/home/deployer'
 override['rvm']['keyserver'] = '213.133.103.71'
 
+default['apache']['run_group'] = 'www-data'
+
 # Examples:
 #
 # default['rails_apps'] = [

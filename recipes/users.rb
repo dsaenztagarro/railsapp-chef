@@ -23,3 +23,9 @@ group 'www-data' do
   members deployer['id']
   action :modify
 end
+
+apache_run_group = node['apache']['run_group']
+
+execute 'setting_apache_run_group_as_primary_group' do
+  command "usermod -g #{apache_run_group} #{deployer['id']}"
+end
